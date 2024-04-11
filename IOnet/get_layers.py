@@ -112,3 +112,13 @@ class DecoderBlock(nn.Module):
         x = self.bnn3(x)
 
         return x
+
+
+def get_decoder_blocks(out_sizes=[512, 256, 128, 64, 32]):
+    decoder_blocks = []
+    for i, out_size in enumerate(out_sizes):
+        if i == 0:
+            decoder_blocks.append(DecoderBlock(out_size*2, out_size))
+        else:
+            decoder_blocks.append(DecoderBlock(out_size*4, out_size))
+    return decoder_blocks
