@@ -59,7 +59,7 @@ def get_encoder_layers():
 
 
 class DecoderBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, expansion=3):
+    def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
         print("Alert: skip connection is not implemented in the decoder block")
         """
         Decoder block module.
@@ -77,6 +77,7 @@ class DecoderBlock(nn.Module):
         self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
 
         # nearest neighbor x2
+        self.do_up_sampling = do_up_sampling
         self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
 
         # DW conv/ c_in*exp x 5 x 5 x c_in*exp
@@ -102,7 +103,8 @@ class DecoderBlock(nn.Module):
         x = self.bnn1(x)
         x = self.relu(x)
 
-        x = self.upsample(x)
+        if self.do_up_sampling:
+            x = self.upsample(x)
 
         x = self.cnn2(x)
         x = self.bnn2(x)
@@ -114,11 +116,14 @@ class DecoderBlock(nn.Module):
         return x
 
 
-def get_decoder_blocks(out_sizes=[512, 256, 128, 64, 32]):
+def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
     decoder_blocks = []
     for i, out_size in enumerate(out_sizes):
         if i == 0:
             decoder_blocks.append(DecoderBlock(out_size*2, out_size))
+        elif i == len(out_sizes)-1:
+            decoder_blocks.append(DecoderBlock(
+                out_size*4, out_size, do_up_sampling=False))
         else:
             decoder_blocks.append(DecoderBlock(out_size*4, out_size))
     return decoder_blocks
