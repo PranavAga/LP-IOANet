@@ -38,14 +38,12 @@ def load_img_to_tensor(img_dir):
     # Load images to tensor
     for img_path in img_paths:
         img = Image.open(img_path)
-        img = img.resize((224, 224))
+        # img = img.resize((224, 224))
         img = np.array(img)
         img = torch.tensor(img, dtype=torch.float32)
         img = img.permute(2, 0, 1)
         img /= 255.0
-        print("Loaded image shape:", img.shape)
-        assert img.shape == (
-            3, 224, 224), f"Image shape is {img.shape} instead of (3, 224, 224)"
+        # print("Loaded image shape:", img.shape)
         images.append(img)
 
     return torch.stack(images)

@@ -60,7 +60,7 @@ def get_encoder_layers():
 
 class DecoderBlock(nn.Module):
     def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
-        print("Alert: skip connection is not implemented in the decoder block")
+        # print("Alert: skip connection is not implemented in the decoder block")
         """
         Decoder block module.
 
