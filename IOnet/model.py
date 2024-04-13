@@ -26,8 +26,10 @@ class UnetWithoutAT(nn.Module):
 
         self.image_processor = image_processor
         self.image_stem_layer = image_stem_layer
+        # print("Image stem layer:", self.image_stem_layer)
         self.out_image_stem_layer = nn.Sequential(
-            nn.ConvTranspose2d(32, 3, kernel_size=3, stride=2, bias=False),
+            nn.ConvTranspose2d(32, 3, kernel_size=3, stride=2,
+                               bias=False, padding=1, output_padding=1),
             nn.BatchNorm2d(3, eps=0.001, momentum=0.9997,
                            affine=True, track_running_stats=True),
             nn.ReLU()
@@ -50,10 +52,12 @@ class UnetWithoutAT(nn.Module):
             x = torch.stack(new_x).permute(0, 3, 1, 2)
         assert x.shape[1] == 3, "Input image should have 3 channels(nx3x224x224)"
 
+        temp_in_x = x
         x = self.image_stem_layer(x)
         enc_outputs = []
         for indx, enc_block in enumerate(self.encoder_blocks):
             x = enc_block(x)
+            # print(f"Encoder block {indx} output shape: {x.shape}")
             enc_outputs.append(x)
         for indx, dec_block in enumerate(self.decoder_blocks):
             if indx == 0:
@@ -61,5 +65,5 @@ class UnetWithoutAT(nn.Module):
             else:
                 x = dec_block(
                     torch.cat([x, enc_outputs[len(self.decoder_blocks) - indx - 1]], dim=1))
-
-        return self.out_image_stem_layer(x)
+            # print(f"Decoder block {indx} output shape: {x.shape}")
+        return 0.5 * self.out_image_stem_layer(x) + temp_in_x
