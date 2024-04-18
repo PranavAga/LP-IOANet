@@ -1,0 +1,44 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.11.3",
+    "heartbeatAt": "2024-04-18T18:42:29.656591",
+    "startedAt": "2024-04-18T18:42:23.327252",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/PranavAga/LP-IOANet.git",
+        "commit": "bc6b796ce0e3c4e7e46c63ebf033f7dac17ea17f"
+    },
+    "email": "sreenivasbp03@gmail.com",
+    "root": "C:/Users/Administrator/OneDrive - International Institute of Information Technology/Courses/sem_6/files/SMAI/project/LP-IOANet",
+    "host": "SreenivasPC",
+    "username": "Administrator",
+    "executable": "c:\\Program Files\\Python311\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1600.0,
+        "min": 0.0,
+        "max": 1800.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1600.0,
+            "min": 0.0,
+            "max": 1800.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 402.45312118530273,
+            "used": 198.10101318359375
+        }
+    },
+    "memory": {
+        "total": 15.89969253540039
+    }
+}
