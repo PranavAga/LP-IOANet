@@ -38,7 +38,7 @@ wandb.init(project="smai-proj-unet", config={
     "dataset": "Shadoc-lowres",
     "architecture": "UNetWithoutAT",
     
-    "epochs": 500,
+    "epochs": 10,
     "learning_rate": 5e-1,
     "batch_size": 10,
 })
@@ -87,60 +87,6 @@ print(X_train.shape,X_test.shape,Y_train.shape,Y_test.shape,flush=True)
 
 # %%
 """ ## Layers Definition """
-
-class h_sigmoid(nn.Module):
-    def __init__(self, inplace=True):
-        super(h_sigmoid, self).__init__()
-        self.relu = nn.ReLU6(inplace=inplace)
-
-    def forward(self, x):
-        return self.relu(x + 3) / 6
-
-class h_swish(nn.Module):
-    def __init__(self, inplace=True):
-        super(h_swish, self).__init__()
-        self.sigmoid = h_sigmoid(inplace=inplace)
-
-    def forward(self, x):
-        return x * self.sigmoid(x)
-
-class CoordAtt(nn.Module):
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-        
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        
-
-    def forward(self, x):
-        identity = x
-        
-        n,c,h,w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y) 
-        
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h).sigmoid()
-        a_w = self.conv_w(x_w).sigmoid()
-
-        out = identity * a_w * a_h
-
-        return out 
 
 def get_encoder_layers():
     """
@@ -249,71 +195,6 @@ def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
 # %%
 """ ## Model Definition """
 loss_weights=(10,5)
-
-class UnetWithAT(nn.Module):
-    
-    def __init__(self, lr=0.5):
-        super(UnetWithAT, self).__init__()
-        encoder_blocks, image_stem_layer, image_processor = get_encoder_layers()
-        decoder_blocks = get_decoder_layers()
-
-        self.encoder_blocks = encoder_blocks
-        self.decoder_blocks = decoder_blocks
-
-        self.image_processor = image_processor
-        self.image_stem_layer = image_stem_layer
-        self.lra = CoordAtt(3, 3)
-        self.ldra = CoordAtt(3, 3)
-        
-        self.out_image_stem_layer = nn.Sequential(
-            nn.ConvTranspose2d(32, 3, kernel_size=3, stride=2,
-                               bias=False, padding=1, output_padding=1),
-            nn.BatchNorm2d(3, eps=0.001, momentum=0.9997,
-                           affine=True, track_running_stats=True),
-            nn.ReLU()
-        )
-
-        # self.loss2 = nn.
-        
-        
-    def forward(self, x, process_image=False):
-        """
-        Performs forward pass through the U-Net model.
-
-        Args:
-            x (torch.Tensor): Input image tensor.
-            process_image (bool): Whether to preprocess input image.
-
-        Returns:
-            torch.Tensor: Output image tensor.
-        """
-        if process_image:
-            new_x = [self.image_processor(img)['pixel_values'][0] for img in x]
-            x = torch.stack(new_x).permute(0, 3, 1, 2)
-        assert x.shape[1] == 3, "Input image should have 3 channels(nx3x224x224)"
-
-        temp_in_x = x
-        x = self.image_stem_layer(x)
-        enc_outputs = []
-        for indx, enc_block in enumerate(self.encoder_blocks):
-            x = enc_block(x)
-            # print(f"Encoder block {indx} output shape: {x.shape}")
-            enc_outputs.append(x)
-        for indx, dec_block in enumerate(self.decoder_blocks):
-            if indx == 0:
-                x = dec_block(x)
-            else:
-                x = dec_block(
-                    torch.cat([x, enc_outputs[len(self.decoder_blocks) - indx - 1]], dim=1))
-            # print(f"Decoder block {indx} output shape: {x.shape}")
-            
-        # lra attention on skip connection
-        temp_in_x = self.lra(temp_in_x)
-        # ldra attention on output
-        x = self.ldra(self.out_image_stem_layer(x))
-        
-        return x + temp_in_x
-    
 
 class UnetWithoutAT(nn.Module):
     
@@ -472,7 +353,7 @@ def accuracy(model, x, y):
 # %%
 """ ## Loading Model and Training """
 torch.cuda.empty_cache()
-model = UnetWithAT()
+model = UnetWithoutAT()
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
