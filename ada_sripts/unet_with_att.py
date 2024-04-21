@@ -17,6 +17,7 @@ from torchmetrics.image import StructuralSimilarityIndexMeasure as SSIM
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 import wandb
+import torch
 
 # %%
 SEED = 0
@@ -31,7 +32,8 @@ torch.backends.cudnn.deterministic=True
 wandb.login()
 
 # %%
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda:0"
 print(f"Using {DEVICE} DEVICE",flush=True)
 
 # %%
@@ -183,10 +185,10 @@ class UnetWithoutAT(nn.Module):
         self.en1, self.en2, self.en3, self.en4, self.en5 = encoder_blocks
         self.de1, self.de2, self.de3, self.de4, self.de5 = decoder_blocks
 
-        self.encoder_blocks = [self.en1, self.en2,
-                               self.en3, self.en4, self.en5]
-        self.decoder_blocks = [self.de1, self.de2,
-                               self.de3, self.de4, self.de5]
+        self.encoder_blocks = nn.ModuleList([self.en1, self.en2,
+                               self.en3, self.en4, self.en5])
+        self.decoder_blocks = nn.ModuleList([self.de1, self.de2,
+                               self.de3, self.de4, self.de5])
 
         self.image_processor = image_processor
         self.image_stem_layer = image_stem_layer
@@ -249,51 +251,15 @@ class UnetWithoutAT(nn.Module):
             pred = self(x)
             return self.loss_layer(pred,y).item()
     
-    def accuracy(self,x,y):
-        with torch.no_grad():
-            pred = self(x)
-            metric = SSIM()
-            if DEVICE=='cuda':
-                metric = metric.cuda()
-            return metric(pred,y)
+        def accuracy(self,x,y):
+            with torch.no_grad():
+                pred = self(x)
+                metric = SSIM()
+                if DEVICE=='cuda':
+                    metric = metric.cuda()
+                return metric(pred,y)
     
-    def fit(self, x_train, y_train, batch_size=32, n_epochs=3, validation=False, x_val=None, y_val=None):
-        '''
-        
-        '''
-        '''
-        wandb.log(metrics)
 
-        # store best model
-        
-    wandb.finish()
-        '''
-        for epoch in tqdm(range(n_epochs)):
-            #mini-batch gradient descent
-            for i in range((x_train.shape[0] - 1) // batch_size + 1):
-                start_i = i * batch_size
-                end_i = start_i + batch_size
-                xb = x_train[start_i:end_i]
-                yb = y_train[start_i:end_i]
-                pred = self(xb)
-
-                self.optimizer.zero_grad()
-                loss = self.loss_layer(pred,yb)
-               
-                metrices = {"train/loss": loss.item(),
-                           "epoch": epoch+1, 
-                }
-                if validation:
-                    metrices['val/loss'] = self.loss(x_val,y_val)
-                    metrices['val/accuracy'] = self.accuracy(x_val,y_val)
-                    
-                wandb.log(metrices)
-                
-                loss.backward()
-                self.optimizer.step()
-        
-        wandb.finish()
-        return self.loss(x_train,y_train)
 
 # %%
 """
@@ -310,10 +276,14 @@ def load_images_from_folder(folder_path):
             images.append(img)
     return images
 
-folder_path_shadow = f"./input"
-folder_path_removed = f"./target"
+# folder_path_shadow = f"./input"
+# folder_path_removed = f"./target"
 
-n_images = 10
+# for testing
+folder_path_shadow = f"../test_images/input"
+folder_path_removed = f"../test_images/target"
+
+n_images = 20
 img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
 img_removed = load_images_from_folder(folder_path_removed)[:n_images]
 
@@ -341,14 +311,6 @@ img_removed = torch.stack(img_removed)
 # %%
 X_train, X_test, Y_train, Y_test = train_test_split(img_shadow, img_removed, test_size=0.1)
 print(X_train.shape,Y_test.shape,flush=True)
-
-# %%
-if DEVICE=='cuda':
-    X_train = X_train.cuda()
-    Y_train = Y_train.cuda()
-    
-    X_test = X_test.cuda()
-    Y_test = Y_test.cuda()
     
 
 # %%
@@ -356,23 +318,195 @@ if DEVICE=='cuda':
 ## Training
 """
 
-# %%
-wandb.init(project="smai-proj-unet",config={
+print("Training", flush=True)
+wandb.init(project="smai-proj-unet", config={
     "dataset": "Shadoc-lowres",
     "architecture": "UNetWithoutAT",
     
-    "epochs":10,
-    "learning_rate" : 5e-1,
-    "batch_size": 16,
-      })
+    "epochs": 10,
+    "learning_rate": 5e-1,
+    "batch_size": 1,
+})
 config = wandb.config
 
-# %%
-model = UnetWithoutAT(lr=config.learning_rate)
-if DEVICE=='cuda':
-    model = model.cuda()
+
+
+
+
+# from here making changes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # %%
-model.fit(X_train,Y_train,batch_size=config.batch_size, n_epochs=config.epochs, validation=True, x_val=X_test, y_val=Y_test)
+# empty cuda cache
+torch.cuda.empty_cache()
+model = UnetWithoutAT()
+
+# print model
+print(model,flush=True)
+
+
+# %%
+# create a data loader
+train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
+
+print("Data loader created", flush=True)
+model = nn.DataParallel(model, device_ids=[0,1,2,3])
+# model.to(DEVICE)
+
+# %%
+
+def fit(model, x_train, y_train, batch_size=32, n_epochs=3, validation=False, x_val=None, y_val=None):
+    '''
+    
+    '''
+    '''
+    wandb.log(metrics)
+
+    # store best model
+    
+wandb.finish()
+    '''
+    for epoch in tqdm(range(n_epochs)):
+        #mini-batch gradient descent
+        for i in range((x_train.shape[0] - 1) // batch_size + 1):
+            start_i = i * batch_size
+            end_i = start_i + batch_size
+            xb = x_train[start_i:end_i]
+            yb = y_train[start_i:end_i]
+            pred = model(xb)
+
+            model.optimizer.zero_grad()
+            loss = model.loss_layer(pred,yb)
+            
+            metrices = {"train/loss": loss.item(),
+                        "epoch": epoch+1, 
+            }
+            if validation:
+                metrices['val/loss'] = model.loss(x_val,y_val)
+                metrices['val/accuracy'] = model.accuracy(x_val,y_val)
+                
+            wandb.log(metrices)
+            
+            loss.backward()
+            model.optimizer.step()
+    
+    wandb.finish()
+    return model.loss(x_train,y_train)
+
+# %%
+
+fit(model,X_train,Y_train,batch_size=config.batch_size, n_epochs=config.epochs, validation=True, x_val=X_test, y_val=Y_test)
+
+# %%
+
+# train loop
+for epoch in range(config.epochs):
+    for i, (x_batch, y_batch) in enumerate(train_loader):
+        model.train()
+        
+        # set to device
+        # x_batch, y_batch = x_batch.to(DEVICE), y_batch.to(DEVICE)
+        
+        # Forward pass
+        y_pred = model(x_batch)
+        # Compute Loss
+        loss = model.loss_layer(y_pred, y_batch)
+        # Zero gradients, backward pass, update weights
+        model.optimizer.zero_grad()
+        loss.backward()
+        model.optimizer.step()
+
+        # Log loss
+        wandb.log({"loss": loss.item()})
+
+        # Log images
+        if i % 10 == 0:
+            wandb.log({
+                "input": [wandb.Image(x_batch[0].cpu().detach().numpy())],
+                "output": [wandb.Image(y_pred[0].cpu().detach().numpy())],
+                "target": [wandb.Image(y_batch[0].cpu().detach().numpy())]
+            })
+
+
+# %%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # get one input and check the output
+# input_img = X_train[0].unsqueeze(0)
+
+# print(input_img.shape,flush=True)
+
+# # inputing the image
+# output = net(input_img)
+
+# print(output.shape,flush=True)
+
+
+# # %%
+# """
+# ## Loading to cuda
+# """
+# print("Loading to cuda", flush=True)
+
+# # %%
+# # empty cuda cache
+# torch.cuda.empty_cache()
+# model = nn.DataParallel(model)
+
+# device = 'cuda'
+# X_train = X_train.to(device)
+# Y_train = Y_train.to(device)
+
+# X_test = X_test.to(device)
+# Y_test = Y_test.to(device)
+
+# # Move your model to the appropriate device
+# model = model.to(device)
+
+# # given i have 4 cuda
+
+# # %%
+# model.fit(X_train,Y_train,batch_size=config.batch_size, n_epochs=config.epochs, validation=True, x_val=X_test, y_val=Y_test)
+
+# # %%
 
 # %%
