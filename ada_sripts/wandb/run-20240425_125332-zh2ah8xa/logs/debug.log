@@ -52,3 +52,13 @@ config: {'dataset': 'Shadoc-lowres', 'architecture': 'UNetWithoutAT', 'epochs': 
 2024-04-25 12:54:21,847 INFO    MainThread:29936 [jupyter.py:save_ipynb():373] not saving jupyter notebook
 2024-04-25 12:54:21,847 INFO    MainThread:29936 [wandb_init.py:_pause_backend():432] pausing backend
 2024-04-25 12:54:21,958 INFO    MainThread:29936 [wandb_init.py:_resume_backend():437] resuming backend
+2024-04-25 17:55:24,321 INFO    MainThread:29936 [wandb_run.py:_finish():2064] finishing run sreenivasbp03/smai-proj-unet/zh2ah8xa
+2024-04-25 17:55:24,322 ERROR   MainThread:29936 [jupyter.py:save_history():437] Run pip install nbformat to save notebook history
+2024-04-25 17:55:24,322 INFO    MainThread:29936 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-04-25 17:55:24,322 INFO    MainThread:29936 [wandb_init.py:_jupyter_teardown():449] cleaning up jupyter logic
+2024-04-25 17:55:24,322 INFO    MainThread:29936 [wandb_run.py:_atexit_cleanup():2304] got exitcode: 0
+2024-04-25 17:55:24,322 INFO    MainThread:29936 [wandb_run.py:_restore():2287] restore
+2024-04-25 17:55:24,323 INFO    MainThread:29936 [wandb_run.py:_restore():2293] restore done
+2024-04-25 17:55:33,218 INFO    MainThread:29936 [wandb_run.py:_footer_history_summary_info():3936] rendering history
+2024-04-25 17:55:33,219 INFO    MainThread:29936 [wandb_run.py:_footer_history_summary_info():3968] rendering summary
+2024-04-25 17:55:33,269 INFO    MainThread:29936 [wandb_run.py:_footer_sync_info():3895] logging synced files

@@ -59,62 +59,68 @@ def get_encoder_layers():
 
 
 class DecoderBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
-        # print("Alert: skip connection is not implemented in the decoder block")
-        """
-        Decoder block module.
+	def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
+		"""
+		Decoder block module.
 
-        Args:
-            in_channels (int): Number of input channels.
-            out_channels (int): Number of output channels.
-            expansion (int, optional): Expansion factor. Default is 3.
-        """
-        super(DecoderBlock, self).__init__()
-        self.relu = nn.ReLU(inplace=True)
+		Args:
+			in_channels (int): Number of input channels.
+			out_channels (int): Number of output channels.
+			expansion (int, optional): Expansion factor. Default is 3.
+		"""
+		super(DecoderBlock, self).__init__()
+		self.relu = nn.ReLU(inplace=True)
 
-        self.cnn1 = nn.Conv2d(in_channels, in_channels *
-                              expansion, kernel_size=1, stride=1)
-        self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
+		self.cnn1 = nn.Conv2d(in_channels, in_channels *
+							  expansion, kernel_size=1, stride=1)
+		self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
 
-        # nearest neighbor x2
-        self.do_up_sampling = do_up_sampling
-        self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
+		# nearest neighbor x2
+		self.do_up_sampling = do_up_sampling
+		self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
 
-        # DW conv/ c_in*exp x 5 x 5 x c_in*exp
-        self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
-                              expansion, kernel_size=5, padding=2, stride=1)
-        self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
+		# DW conv/ c_in*exp x 5 x 5 x c_in*exp
+		self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
+							  expansion, kernel_size=5, padding=2, stride=1)
+		self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
 
-        self.cnn3 = nn.Conv2d(in_channels*expansion,
-                              out_channels, kernel_size=1, stride=1)
-        self.bnn3 = nn.BatchNorm2d(out_channels)
+		self.cnn3 = nn.Conv2d(in_channels*expansion,
+							  out_channels, kernel_size=1, stride=1)
+		self.bnn3 = nn.BatchNorm2d(out_channels)
+		
+		self.skip_cnn = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1)
 
-    def forward(self, x):
-        """
-        Forward pass through the decoder block.
+	def forward(self, x):
+		"""
+		Forward pass through the decoder block.
 
-        Args:
-            x (torch.Tensor): Input tensor.
+		Args:
+			x (torch.Tensor): Input tensor.
 
-        Returns:
-            torch.Tensor: Output tensor.
-        """
-        x = self.cnn1(x)
-        x = self.bnn1(x)
-        x = self.relu(x)
+		Returns:
+			torch.Tensor: Output tensor.
+		"""
+		temp_x = x
+		x = self.cnn1(x)
+		x = self.bnn1(x)
+		x = self.relu(x)
+			
+		x = self.cnn2(x)
+		x = self.bnn2(x)
+		x = self.relu(x)
+  
+		x = self.cnn3(x)
+		x = self.bnn3(x)
+		
+		# adding skip connection
+		temp_x = self.skip_cnn(temp_x)
 
-        if self.do_up_sampling:
-            x = self.upsample(x)
-
-        x = self.cnn2(x)
-        x = self.bnn2(x)
-        x = self.relu(x)
-
-        x = self.cnn3(x)
-        x = self.bnn3(x)
-
-        return x
-
+		x = x + temp_x
+  
+		if self.do_up_sampling:
+			x = self.upsample(x)
+  
+		return x
 
 def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
     decoder_blocks = []

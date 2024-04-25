@@ -42,7 +42,7 @@ wandb.init(project="smai-proj-unet", config={
     
     "epochs": 50,
     "learning_rate": 0.01,
-    "batch_size": 10,
+    "batch_size": 32,
 })
 config = wandb.config
 
@@ -78,7 +78,7 @@ def load_images_from_folder(folder_path):
 folder_path_shadow = f"../data/192,256/train/input"
 folder_path_removed = f"../data/192,256/train/target"
 
-n_images = 4000
+n_images = 2000
 img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
 img_removed = load_images_from_folder(folder_path_removed)[:n_images]
 
@@ -195,61 +195,68 @@ def get_encoder_layers():
     return mobilenet_seq_blocks, model.conv_stem, image_processor
 
 class DecoderBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, expansion=2, do_up_sampling=True):
-        # TODO: adding skip connections
-        """
-        Decoder block module.
+	def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
+		"""
+		Decoder block module.
 
-        Args:
-            in_channels (int): Number of input channels.
-            out_channels (int): Number of output channels.
-            expansion (int, optional): Expansion factor. Default is 3.
-        """
-        super(DecoderBlock, self).__init__()
-        self.relu = nn.ReLU(inplace=True)
+		Args:
+			in_channels (int): Number of input channels.
+			out_channels (int): Number of output channels.
+			expansion (int, optional): Expansion factor. Default is 3.
+		"""
+		super(DecoderBlock, self).__init__()
+		self.relu = nn.ReLU(inplace=True)
 
-        self.cnn1 = nn.Conv2d(in_channels, in_channels *
-                              expansion, kernel_size=1, stride=1)
-        self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
+		self.cnn1 = nn.Conv2d(in_channels, in_channels *
+							  expansion, kernel_size=1, stride=1)
+		self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
 
-        # nearest neighbor x2
-        self.do_up_sampling = do_up_sampling
-        self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
+		# nearest neighbor x2
+		self.do_up_sampling = do_up_sampling
+		self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
 
-        # DW conv/ c_in*exp x 5 x 5 x c_in*exp
-        self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
-                              expansion, kernel_size=5, padding=2, stride=1)
-        self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
+		# DW conv/ c_in*exp x 5 x 5 x c_in*exp
+		self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
+							  expansion, kernel_size=5, padding=2, stride=1)
+		self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
 
-        self.cnn3 = nn.Conv2d(in_channels*expansion,
-                              out_channels, kernel_size=1, stride=1)
-        self.bnn3 = nn.BatchNorm2d(out_channels)
+		self.cnn3 = nn.Conv2d(in_channels*expansion,
+							  out_channels, kernel_size=1, stride=1)
+		self.bnn3 = nn.BatchNorm2d(out_channels)
+		
+		self.skip_cnn = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1)
 
-    def forward(self, x):
-        """
-        Forward pass through the decoder block.
+	def forward(self, x):
+		"""
+		Forward pass through the decoder block.
 
-        Args:
-            x (torch.Tensor): Input tensor.
+		Args:
+			x (torch.Tensor): Input tensor.
 
-        Returns:
-            torch.Tensor: Output tensor.
-        """
-        x = self.cnn1(x)
-        x = self.bnn1(x)
-        x = self.relu(x)
+		Returns:
+			torch.Tensor: Output tensor.
+		"""
+		temp_x = x
+		x = self.cnn1(x)
+		x = self.bnn1(x)
+		x = self.relu(x)
+			
+		x = self.cnn2(x)
+		x = self.bnn2(x)
+		x = self.relu(x)
+  
+		x = self.cnn3(x)
+		x = self.bnn3(x)
+		
+		# adding skip connection
+		temp_x = self.skip_cnn(temp_x)
 
-        if self.do_up_sampling:
-            x = self.upsample(x)
-
-        x = self.cnn2(x)
-        x = self.bnn2(x)
-        x = self.relu(x)
-
-        x = self.cnn3(x)
-        x = self.bnn3(x)
-
-        return x
+		x = x + temp_x
+  
+		if self.do_up_sampling:
+			x = self.upsample(x)
+  
+		return x
 
 def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
     decoder_blocks = nn.ModuleList()
@@ -265,8 +272,6 @@ def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
 
 # %%
 """ ## Model Definition """
-loss_weights=(10,5)
-
 class UnetWithAT(nn.Module):
     
     def __init__(self, lr=0.5):
@@ -469,8 +474,14 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
                     a.axis('off')                    
                 plt.show()
                 
-        wandb.log(metrices)     
+        wandb.log(metrices)   
         
+        # save the model with epoch done in the name  
+        """ Save the model """
+        # save the model
+        torch.save(model.state_dict(), f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth")
+        print(f"Model saved successfully at path :",f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth",flush=True)
+
             
     if print_every_epoch: print("Training finished")
     wandb.finish()
@@ -524,31 +535,27 @@ print('model size: {:.3f}MB'.format(size_all_mb))
 
 
 # %%
+loss_weights=(10,5)
 optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
 # training(model,train_loader, n_epochs=config.epochs, print_every_epoch=True, optimizer=optimizer)   
 training(model,train_loader, n_epochs=config.epochs, print_every_epoch=True, optimizer=optimizer, validation=True, val_loader=val_loader)
 
-# %%
-""" Save the model """
-# save the model
-torch.save(model.state_dict(), "../models/model_att_4000_w10_5.pth")
-print(f"Model saved successfully at path ../models/model_att_4000_w10_5.pth",flush=True)
+ # %%
+torch.cuda.empty_cache()
 
 
 # %%
-""" Inferencing """
-random_index = np.random.randint(0, len(X_test))
+# """ Inferencing """
+# random_index = np.random.randint(0, len(X_test))
 
-# print the original image
-print("Original Image")
-plt.imshow(unormalize_np_image(X_test[random_index].permute(1, 2, 0)))
-plt.show()
+# # print the original image
+# print("Original Image")
+# plt.imshow(unormalize_np_image(X_test[random_index].permute(1, 2, 0)))
+# plt.show()
 
-# print the predicted image
-print("Predicted Image")
-plt.imshow(model(X_test[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0))
-plt.show()
-
-# %%
+# # print the predicted image
+# print("Predicted Image")
+# plt.imshow(model(X_test[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0))
+# plt.show()
 
 # %%
