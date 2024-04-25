@@ -1,0 +1,54 @@
+torch.Size([900, 3, 256, 192]) torch.Size([100, 3, 256, 192]) torch.Size([900, 3, 256, 192]) torch.Size([100, 3, 256, 192])
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+/home2/sreenivas88/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home2/sreenivas88/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+  0%|          | 0/450 [00:00<?, ?it/s]
+model size: 969.097MB
+Training started
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 29%|██▉       | 131/450 [01:12<02:56,  1.81it/s]
+
+ 29%|██▉       | 131/450 [01:12<02:56,  1.80it/s]
+{"AutoImageProcessor": "type", "CoordAtt": "type", "DEVICE": "str", "DecoderBlock": "type", "Image": "module", "MobileNetV1Model": "type", "PIL": "module", "SEED": "int", "SSIM": "ABCMeta", "UnetWithAT": "type", "UnetWithoutAT": "type", "X_test": "Tensor", "X_train": "Tensor", "Y_test": "Tensor", "Y_train": "Tensor", "accuracy": "function", "buffer": "Tensor", "buffer_size": "int", "config": "Config", "folder_path_removed": "str", "folder_path_shadow": "str", "get_decoder_layers": "function", "get_encoder_layers": "function", "get_ipython": "function", "get_loss": "function", "h_sigmoid": "type", "h_swish": "type", "img_removed": "Tensor", "img_shadow": "Tensor", "load_images_from_folder": "function", "loss1": "L1Loss", "loss_layer": "function", "loss_weights": "tuple", "lpips": "module", "lpips_layer": "LPIPS", "model": "DataParallel", "n_images": "int", "nn": "module", "norm_mean": "list", "norm_std": "list", "np": "module", "optimizer": "Adam", "os": "module", "param": "Parameter", "param_size": "int", "plt": "module", "size_all_mb": "float", "torch": "module", "tqdm": "type", "train_dataset": "TensorDataset", "train_loader": "DataLoader", "train_test_split": "function", "training": "function", "transform": "Compose", "transforms": "module", "val_dataset": "TensorDataset", "val_loader": "DataLoader", "wandb": "module"}
+Training
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.login() after wandb.init() has no effect.

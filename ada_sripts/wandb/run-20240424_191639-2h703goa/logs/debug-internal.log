@@ -1,0 +1,1052 @@
+2024-04-24 19:16:47,105 INFO    StreamThr :30717 [internal.py:wandb_internal():86] W&B internal server running at pid: 30717, started at: 2024-04-24 19:16:47.103655
+2024-04-24 19:16:47,108 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status
+2024-04-24 19:16:47,109 INFO    WriterThread:30717 [datastore.py:open_for_write():87] open: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/run-2h703goa.wandb
+2024-04-24 19:16:47,113 DEBUG   SenderThread:30717 [sender.py:send():379] send: header
+2024-04-24 19:16:47,113 DEBUG   SenderThread:30717 [sender.py:send():379] send: run
+2024-04-24 19:16:49,193 INFO    SenderThread:30717 [dir_watcher.py:__init__():211] watching files in: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files
+2024-04-24 19:16:49,193 INFO    SenderThread:30717 [sender.py:_start_run_threads():1124] run started: 2h703goa with start time 1713966406.504086
+2024-04-24 19:16:49,218 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: check_version
+2024-04-24 19:16:49,219 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: check_version
+2024-04-24 19:16:49,442 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: run_start
+2024-04-24 19:16:49,445 DEBUG   HandlerThread:30717 [system_info.py:__init__():26] System info init
+2024-04-24 19:16:49,445 DEBUG   HandlerThread:30717 [system_info.py:__init__():41] System info init done
+2024-04-24 19:16:49,446 INFO    HandlerThread:30717 [system_monitor.py:start():194] Starting system monitor
+2024-04-24 19:16:49,446 INFO    SystemMonitor:30717 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-24 19:16:49,447 INFO    HandlerThread:30717 [system_monitor.py:probe():214] Collecting system info
+2024-04-24 19:16:49,447 INFO    SystemMonitor:30717 [interfaces.py:start():190] Started cpu monitoring
+2024-04-24 19:16:49,448 INFO    SystemMonitor:30717 [interfaces.py:start():190] Started disk monitoring
+2024-04-24 19:16:49,449 INFO    SystemMonitor:30717 [interfaces.py:start():190] Started gpu monitoring
+2024-04-24 19:16:49,451 INFO    SystemMonitor:30717 [interfaces.py:start():190] Started memory monitoring
+2024-04-24 19:16:49,453 INFO    SystemMonitor:30717 [interfaces.py:start():190] Started network monitoring
+2024-04-24 19:16:49,497 DEBUG   HandlerThread:30717 [system_info.py:probe():150] Probing system
+2024-04-24 19:16:49,499 DEBUG   HandlerThread:30717 [system_info.py:_probe_git():135] Probing git
+2024-04-24 19:16:49,514 DEBUG   HandlerThread:30717 [system_info.py:_probe_git():143] Probing git done
+2024-04-24 19:16:49,515 DEBUG   HandlerThread:30717 [system_info.py:probe():198] Probing system done
+2024-04-24 19:16:49,515 DEBUG   HandlerThread:30717 [system_monitor.py:probe():223] {'os': 'Linux-4.15.0-213-generic-x86_64-with-glibc2.27', 'python': '3.12.2', 'heartbeatAt': '2024-04-24T13:46:49.497919', 'startedAt': '2024-04-24T13:46:39.898683', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home2/sreenivas88/work/LP-IOANet/ada_sripts/h1.py', 'codePathLocal': 'h1.py', 'codePath': 'ada_sripts/h1.py', 'git': {'remote': 'https://github.com/PranavAga/LP-IOANet.git', 'commit': 'ade52677ba04fadd2bfb98bf2a353779384eb083'}, 'email': 'sreenivasbp03@gmail.com', 'root': '/home2/sreenivas88/work/LP-IOANet', 'host': 'gnode041', 'username': 'sreenivas88', 'executable': '/home2/sreenivas88/miniconda3/bin/python', 'cpu_count': 20, 'cpu_count_logical': 40, 'cpu_freq': {'current': 1287.2187499999998, 'min': 1200.0, 'max': 3400.0}, 'cpu_freq_per_core': [{'current': 1200.3, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.768, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.761, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.48, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.744, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.445, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.519, 'min': 1200.0, 'max': 3400.0}, {'current': 1204.592, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.939, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.634, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.683, 'min': 1200.0, 'max': 3400.0}, {'current': 1204.17, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.235, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.318, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.747, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.738, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.656, 'min': 1200.0, 'max': 3400.0}, {'current': 1202.653, 'min': 1200.0, 'max': 3400.0}, {'current': 1784.276, 'min': 1200.0, 'max': 3400.0}, {'current': 1589.988, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.312, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.629, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.917, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.021, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.815, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.649, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.037, 'min': 1200.0, 'max': 3400.0}, {'current': 1755.369, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.139, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.863, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.475, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.318, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.59, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.658, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.123, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.313, 'min': 1200.0, 'max': 3400.0}, {'current': 1200.928, 'min': 1200.0, 'max': 3400.0}, {'current': 1201.037, 'min': 1200.0, 'max': 3400.0}, {'current': 1535.493, 'min': 1200.0, 'max': 3400.0}, {'current': 1284.059, 'min': 1200.0, 'max': 3400.0}], 'disk': {'/': {'total': 136.48257064819336, 'used': 66.17668151855469}}, 'gpu': 'NVIDIA GeForce GTX 1080 Ti', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce GTX 1080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce GTX 1080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce GTX 1080 Ti', 'memory_total': 11811160064}], 'memory': {'total': 125.78691864013672}}
+2024-04-24 19:16:49,515 INFO    HandlerThread:30717 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-24 19:16:49,515 INFO    HandlerThread:30717 [system_monitor.py:probe():227] Publishing system info
+2024-04-24 19:16:49,516 DEBUG   HandlerThread:30717 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-04-24 19:16:50,195 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/conda-environment.yaml
+2024-04-24 19:16:52,195 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/conda-environment.yaml
+2024-04-24 19:16:52,289 DEBUG   HandlerThread:30717 [system_info.py:_save_conda():222] Saving conda packages done
+2024-04-24 19:16:52,293 INFO    HandlerThread:30717 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-24 19:16:52,293 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:16:52,294 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-04-24 19:16:52,294 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:16:52,629 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: python_packages
+2024-04-24 19:16:52,630 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: python_packages
+2024-04-24 19:16:52,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:16:52,632 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:16:52,632 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:16:53,185 DEBUG   SenderThread:30717 [sender.py:send():379] send: telemetry
+2024-04-24 19:16:53,196 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-metadata.json
+2024-04-24 19:16:53,196 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/requirements.txt
+2024-04-24 19:16:53,683 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/sqkaqbnk-wandb-metadata.json
+2024-04-24 19:16:58,186 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:03,187 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:07,630 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:17:07,631 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:17:07,672 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:17:08,993 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:10,208 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:12,210 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:13,210 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:14,978 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:18,214 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:19,215 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:20,402 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:21,216 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:21,217 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/config.yaml
+2024-04-24 19:17:22,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:17:22,631 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:17:22,634 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:17:23,218 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:25,219 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:26,183 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:27,221 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:29,222 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:31,224 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:32,018 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:33,225 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:35,227 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:37,229 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:37,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:17:37,631 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:17:37,633 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:17:38,021 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:39,230 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:41,232 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:43,233 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:43,757 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:45,235 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:47,237 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:48,857 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:49,238 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:49,453 DEBUG   SystemMonitor:30717 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-24 19:17:49,456 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:17:51,240 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:52,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:17:52,631 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:17:52,635 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:17:53,241 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:54,804 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:17:55,243 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:57,244 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:59,246 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:17:59,810 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:01,247 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:03,248 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:04,852 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:05,249 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:07,251 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:07,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:18:07,632 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:18:07,634 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:18:09,252 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:09,875 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:11,253 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:13,255 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:14,952 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:15,256 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:17,258 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:19,259 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:19,458 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:18:20,048 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:21,261 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:22,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:18:22,632 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:18:22,635 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:18:23,263 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:25,095 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:25,264 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:27,266 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:29,267 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:30,114 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:31,269 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:33,270 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:35,188 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:35,272 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:37,274 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:37,631 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:18:37,632 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:18:37,635 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:18:39,275 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:40,395 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:41,277 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:43,278 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:45,280 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:45,450 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:47,190 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:18:47,190 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_0_1a5435057f920a9303ba.png with policy now
+2024-04-24 19:18:47,196 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:18:47,198 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:18:47,199 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:18:47,200 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:18:47,282 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:47,283 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:18:47,283 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_0_1a5435057f920a9303ba.png
+2024-04-24 19:18:47,284 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:18:47,284 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media
+2024-04-24 19:18:47,310 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:18:47,311 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_1_38b26feb90329259fe4e.png with policy now
+2024-04-24 19:18:47,316 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:18:47,318 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:18:47,319 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:18:47,320 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:18:47,545 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:18:47,547 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:18:47,548 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:18:47,550 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:18:48,131 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/tecvoriw-media/images/predicted_image_1_38b26feb90329259fe4e.png
+2024-04-24 19:18:48,283 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:48,284 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:18:48,285 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_1_38b26feb90329259fe4e.png
+2024-04-24 19:18:48,285 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:18:48,311 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/0hj9yrff-media/images/original_image_0_1a5435057f920a9303ba.png
+2024-04-24 19:18:49,157 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/g881j1tz-media/images/predicted_image_1_38b26feb90329259fe4e.png
+2024-04-24 19:18:49,285 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:49,461 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:18:49,699 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/dkn0r29c-media/images/original_image_0_1a5435057f920a9303ba.png
+2024-04-24 19:18:50,285 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:50,574 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:51,287 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:52,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:18:52,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:18:52,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:18:53,289 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:55,292 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:55,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:18:57,294 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:18:59,297 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:00,676 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:01,300 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:03,303 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:05,305 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:05,680 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:07,308 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:07,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:19:07,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:19:07,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:19:09,311 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:10,699 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:11,313 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:13,316 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:15,319 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:15,717 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:17,322 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:19,324 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:19,464 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:19:20,718 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:21,327 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:22,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:19:22,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:19:22,639 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:19:23,329 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:25,331 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:25,741 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:27,333 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:29,335 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:30,946 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:31,337 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:33,340 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:35,342 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:35,955 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:37,344 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:37,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:19:37,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:19:37,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:19:39,347 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:40,957 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:41,349 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:43,351 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:45,354 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:45,981 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:47,357 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:49,360 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:49,466 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:19:50,995 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:51,363 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:52,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:19:52,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:19:52,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:19:53,366 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:55,369 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:56,029 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:19:57,372 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:19:59,374 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:01,066 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:01,377 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:03,380 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:05,383 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:06,080 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:07,386 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:07,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:20:07,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:20:07,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:20:09,389 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:11,160 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:11,392 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:13,395 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:15,398 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:16,199 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:17,401 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:19,105 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:20:19,105 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_3_1a5435057f920a9303ba.png with policy now
+2024-04-24 19:20:19,115 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:20:19,117 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:20:19,117 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:20:19,119 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:20:19,227 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:20:19,227 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_4_c895da6c8688aedfdf35.png with policy now
+2024-04-24 19:20:19,232 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:20:19,234 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:20:19,235 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:20:19,236 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:20:19,409 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:19,410 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:20:19,410 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_3_1a5435057f920a9303ba.png
+2024-04-24 19:20:19,411 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_4_c895da6c8688aedfdf35.png
+2024-04-24 19:20:19,412 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:20:19,468 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:20:19,470 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:20:19,471 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:20:19,471 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:20:19,472 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:20:19,892 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/2c18yns7-media/images/predicted_image_4_c895da6c8688aedfdf35.png
+2024-04-24 19:20:20,196 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/62iumdiv-media/images/original_image_3_1a5435057f920a9303ba.png
+2024-04-24 19:20:20,411 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:20,411 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:20:21,412 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:21,497 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:21,561 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/xp72raif-media/images/predicted_image_4_c895da6c8688aedfdf35.png
+2024-04-24 19:20:22,414 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:22,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:20:22,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:20:22,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:20:22,773 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/3dn5jwxk-media/images/original_image_3_1a5435057f920a9303ba.png
+2024-04-24 19:20:23,415 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:25,418 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:26,550 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:27,421 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:29,424 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:31,427 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:31,555 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:33,430 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:35,433 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:36,610 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:37,436 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:37,637 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:20:37,638 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:20:37,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:20:39,439 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:41,442 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:41,612 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:43,445 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:45,448 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:46,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:47,451 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:49,453 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:49,470 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:20:51,457 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:51,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:52,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:20:52,639 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:20:52,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:20:53,460 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:55,463 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:56,699 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:20:57,466 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:20:59,470 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:01,472 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:01,722 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:03,475 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:05,478 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:06,746 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:07,481 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:07,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:21:07,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:21:07,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:21:09,485 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:11,488 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:11,806 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:13,491 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:15,494 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:16,829 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:17,497 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:19,474 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:21:19,501 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:21,504 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:22,072 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:22,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:21:22,639 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:21:22,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:21:23,507 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:25,510 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:27,117 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:27,512 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:29,515 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:31,519 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:32,140 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:33,522 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:35,525 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:37,194 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:37,527 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:37,638 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:21:37,639 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:21:37,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:21:39,530 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:41,533 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:42,198 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:43,536 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:45,538 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:47,260 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:47,541 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:49,475 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:21:49,544 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:50,997 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:21:50,997 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_6_f4a6cada3c2fa9ecf0ac.png with policy now
+2024-04-24 19:21:51,002 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:21:51,003 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:21:51,004 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:21:51,006 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:21:51,112 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:21:51,112 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_7_7503c288fee314211f62.png with policy now
+2024-04-24 19:21:51,117 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:21:51,119 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:21:51,120 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:21:51,122 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:21:51,356 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:21:51,358 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:21:51,358 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:21:51,360 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:21:51,547 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:51,548 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:21:51,549 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_6_f4a6cada3c2fa9ecf0ac.png
+2024-04-24 19:21:51,549 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_7_7503c288fee314211f62.png
+2024-04-24 19:21:51,550 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:21:52,361 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:52,412 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/7bmtamkj-media/images/predicted_image_7_7503c288fee314211f62.png
+2024-04-24 19:21:52,549 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:52,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:21:52,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:21:52,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:21:52,725 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/sr3krh8g-media/images/original_image_6_f4a6cada3c2fa9ecf0ac.png
+2024-04-24 19:21:53,550 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:53,587 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/vi0xj58p-media/images/predicted_image_7_7503c288fee314211f62.png
+2024-04-24 19:21:55,051 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/5mtdvwmg-media/images/original_image_6_f4a6cada3c2fa9ecf0ac.png
+2024-04-24 19:21:55,553 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:57,379 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:21:57,556 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:21:59,559 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:01,562 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:02,425 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:03,565 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:05,567 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:07,571 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:07,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:22:07,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:22:07,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:22:07,989 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:09,574 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:11,576 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:13,580 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:13,665 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:15,583 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:17,585 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:18,691 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:19,478 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:22:19,588 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:21,591 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:22,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:22:22,639 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:22:22,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:22:23,594 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:23,742 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:25,597 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:27,599 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:28,763 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:29,602 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:30,604 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:32,607 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:33,782 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:34,609 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:36,613 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:37,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:22:37,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:22:37,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:22:38,615 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:38,808 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:40,618 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:42,622 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:43,856 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:44,624 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:46,627 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:48,630 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:48,902 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:49,480 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:22:50,633 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:52,636 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:52,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:22:52,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:22:52,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:22:53,925 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:22:54,639 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:56,642 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:58,644 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:22:58,976 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:00,647 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:02,650 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:04,012 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:04,652 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:06,655 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:07,639 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:23:07,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:23:07,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:23:08,658 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:09,192 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:10,661 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:12,664 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:14,202 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:14,666 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:16,670 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:18,673 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:19,260 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:19,483 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:23:20,675 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:22,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:23:22,641 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:23:22,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:23:22,678 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:23,058 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:23:23,058 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_9_4f51455fa057a21ccf13.png with policy now
+2024-04-24 19:23:23,100 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:23:23,101 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:23:23,102 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:23:23,104 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:23:23,174 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:23:23,174 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_10_79ff89f47dcbd5dd6f0f.png with policy now
+2024-04-24 19:23:23,179 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:23:23,181 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:23:23,182 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:23:23,183 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:23:23,410 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:23:23,411 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:23:23,412 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:23:23,414 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:23:23,681 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:23:23,681 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_9_4f51455fa057a21ccf13.png
+2024-04-24 19:23:23,682 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_10_79ff89f47dcbd5dd6f0f.png
+2024-04-24 19:23:23,683 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:23:23,843 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/jq5w70i4-media/images/predicted_image_10_79ff89f47dcbd5dd6f0f.png
+2024-04-24 19:23:24,289 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/qatqqfht-media/images/original_image_9_4f51455fa057a21ccf13.png
+2024-04-24 19:23:24,415 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:24,682 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:25,133 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/edngmfu9-media/images/predicted_image_10_79ff89f47dcbd5dd6f0f.png
+2024-04-24 19:23:26,445 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/hzvmmx86-media/images/original_image_9_4f51455fa057a21ccf13.png
+2024-04-24 19:23:26,685 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:28,689 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:29,469 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:30,692 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:32,695 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:34,522 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:34,698 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:36,701 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:37,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:23:37,641 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:23:37,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:23:38,704 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:39,583 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:40,707 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:42,710 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:44,608 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:44,713 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:46,717 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:48,720 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:49,485 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:23:49,662 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:50,723 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:52,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:23:52,641 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:23:52,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:23:52,727 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:54,699 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:23:54,730 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:56,733 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:23:58,736 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:00,020 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:00,739 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:02,743 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:04,746 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:05,062 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:06,749 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:07,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:24:07,640 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:24:07,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:24:08,752 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:10,086 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:10,755 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:12,759 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:14,762 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:15,130 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:16,765 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:18,769 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:19,487 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:24:20,177 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:20,772 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:22,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:24:22,641 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:24:22,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:24:22,775 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:24,778 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:25,199 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:26,781 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:28,784 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:30,268 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:30,787 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:32,790 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:34,793 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:35,274 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:36,796 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:37,640 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:24:37,641 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:24:37,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:24:38,800 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:40,488 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:40,803 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:42,809 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:44,812 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:45,577 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:46,815 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:48,818 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:49,490 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:24:50,670 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:50,821 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:52,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:24:52,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:24:52,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:24:52,824 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:54,827 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:55,458 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:24:55,458 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_12_4f51455fa057a21ccf13.png with policy now
+2024-04-24 19:24:55,464 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:24:55,466 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:24:55,466 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:24:55,468 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:24:55,576 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:24:55,577 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_13_309941942deda44da800.png with policy now
+2024-04-24 19:24:55,582 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:24:55,584 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:24:55,585 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:24:55,586 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:24:55,816 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:24:55,817 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:24:55,818 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:24:55,818 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:24:55,820 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:24:55,829 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:24:55,829 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_13_309941942deda44da800.png
+2024-04-24 19:24:55,830 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_12_4f51455fa057a21ccf13.png
+2024-04-24 19:24:55,831 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:24:56,238 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/7b9sfba1-media/images/predicted_image_13_309941942deda44da800.png
+2024-04-24 19:24:56,568 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/j9tgsepr-media/images/original_image_12_4f51455fa057a21ccf13.png
+2024-04-24 19:24:56,831 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:24:57,045 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/0rr9j5jd-media/images/predicted_image_13_309941942deda44da800.png
+2024-04-24 19:24:58,171 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/z47as06z-media/images/original_image_12_4f51455fa057a21ccf13.png
+2024-04-24 19:24:58,834 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:00,838 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:00,859 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:02,841 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:04,845 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:05,889 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:06,848 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:07,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:25:07,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:25:07,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:25:08,851 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:10,855 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:10,904 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:12,859 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:14,863 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:15,936 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:16,868 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:18,872 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:19,493 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:25:20,876 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:20,974 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:22,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:25:22,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:25:22,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:25:22,880 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:24,884 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:25,991 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:26,888 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:28,891 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:30,894 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:31,007 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:32,897 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:34,901 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:36,213 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:36,904 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:37,641 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:25:37,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:25:37,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:25:38,907 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:40,910 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:41,229 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:42,914 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:44,917 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:46,242 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:46,920 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:48,924 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:49,494 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:25:50,927 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:51,270 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:52,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:25:52,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:25:52,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:25:52,930 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:54,934 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:56,306 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:25:56,937 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:25:58,939 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:00,941 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:01,342 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:02,944 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:04,949 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:06,377 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:06,952 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:07,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:26:07,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:26:07,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:26:08,955 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:10,958 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:11,384 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:12,962 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:14,965 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:16,418 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:16,968 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:18,972 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:19,496 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:26:20,975 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:21,443 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:22,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:26:22,642 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:26:22,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:26:22,978 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:24,981 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:26,469 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:26,985 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:27,198 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:26:27,198 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_15_c21958024e61b9ea839e.png with policy now
+2024-04-24 19:26:27,205 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:26:27,207 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:26:27,207 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:26:27,209 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:26:27,315 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:26:27,315 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_16_74474b7fffc71261dc24.png with policy now
+2024-04-24 19:26:27,320 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:26:27,322 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:26:27,322 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:26:27,324 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:26:27,549 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:26:27,551 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:26:27,552 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:26:27,553 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:26:27,987 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:27,987 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:26:27,988 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_15_c21958024e61b9ea839e.png
+2024-04-24 19:26:27,989 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_16_74474b7fffc71261dc24.png
+2024-04-24 19:26:27,989 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:26:28,062 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/eif0x4lu-media/images/predicted_image_16_74474b7fffc71261dc24.png
+2024-04-24 19:26:28,387 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/fiouo3dl-media/images/original_image_15_c21958024e61b9ea839e.png
+2024-04-24 19:26:28,989 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:29,214 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/xaahrxhp-media/images/predicted_image_16_74474b7fffc71261dc24.png
+2024-04-24 19:26:29,990 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:30,462 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/f4wksavb-media/images/original_image_15_c21958024e61b9ea839e.png
+2024-04-24 19:26:30,992 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:31,572 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:32,996 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:34,999 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:36,624 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:37,002 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:37,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:26:37,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:26:37,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:26:39,006 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:41,009 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:41,663 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:43,013 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:45,016 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:46,722 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:47,019 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:49,022 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:49,499 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:26:51,025 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:51,768 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:52,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:26:52,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:26:52,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:26:53,029 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:55,031 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:56,802 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:26:57,035 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:26:59,038 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:01,041 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:01,824 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:03,045 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:05,048 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:06,995 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:07,051 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:07,642 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:27:07,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:27:07,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:27:09,055 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:11,058 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:12,005 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:13,062 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:15,064 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:17,067 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:17,209 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:19,070 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:19,502 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:27:21,073 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:22,240 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:22,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:27:22,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:27:22,644 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:27:23,077 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:25,080 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:27,083 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:27,272 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:29,086 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:31,090 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:32,274 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:33,094 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:35,099 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:37,102 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:37,329 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:37,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:27:37,643 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:27:37,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:27:39,107 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:41,110 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:42,410 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:43,113 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:45,117 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:47,120 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:47,412 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:49,124 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:49,503 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:27:51,127 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:52,529 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:52,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:27:52,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:27:52,647 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:27:53,131 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:55,134 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:57,137 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:57,581 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:27:59,140 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:27:59,671 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:27:59,671 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_18_c21958024e61b9ea839e.png with policy now
+2024-04-24 19:27:59,677 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:27:59,678 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:27:59,678 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:27:59,680 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:27:59,792 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:27:59,792 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_19_74ed82785cc1f2cea3bd.png with policy now
+2024-04-24 19:27:59,797 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:27:59,798 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:27:59,798 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:27:59,801 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:28:00,029 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:28:00,031 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:28:00,031 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:28:00,033 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:28:00,142 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:28:00,142 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_18_c21958024e61b9ea839e.png
+2024-04-24 19:28:00,143 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_19_74ed82785cc1f2cea3bd.png
+2024-04-24 19:28:00,144 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:28:00,481 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/atjtnca5-media/images/predicted_image_19_74ed82785cc1f2cea3bd.png
+2024-04-24 19:28:00,784 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/4ho1wqk1-media/images/original_image_18_c21958024e61b9ea839e.png
+2024-04-24 19:28:01,144 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:01,736 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/4knfklvx-media/images/predicted_image_19_74ed82785cc1f2cea3bd.png
+2024-04-24 19:28:02,145 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:02,958 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/cjbclx1s-media/images/original_image_18_c21958024e61b9ea839e.png
+2024-04-24 19:28:03,079 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:03,147 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:05,150 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:07,154 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:07,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:28:07,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:28:07,646 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:28:08,105 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:09,158 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:11,161 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:13,144 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:13,165 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:15,168 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:17,171 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:18,155 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:19,174 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:19,504 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:28:21,178 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:22,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:28:22,644 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:28:22,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:28:23,181 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:23,201 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:25,185 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:27,189 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:28,210 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:29,193 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:31,196 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:33,199 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:33,248 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:35,202 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:37,205 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:37,643 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:28:37,644 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:28:37,647 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:28:38,480 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:39,208 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:41,212 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:43,215 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:43,520 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:45,218 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:47,221 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:48,553 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:49,225 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:49,507 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:28:51,229 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:52,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:28:52,646 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:28:52,649 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:28:53,232 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:53,598 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:55,235 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:57,239 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:28:58,617 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:28:59,243 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:01,246 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:03,249 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:03,681 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:05,253 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:07,257 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:07,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:29:07,644 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:29:07,649 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:29:08,690 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:09,261 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:11,264 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:13,268 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:13,746 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:15,271 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:17,274 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:18,792 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:19,277 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:19,510 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:29:21,281 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:22,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:29:22,645 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:29:22,648 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:29:23,284 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:23,829 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:25,287 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:27,290 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:28,837 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:29,294 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:31,298 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:31,564 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:29:31,564 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/original_image_21_b6641ed4b71b981b0b5c.png with policy now
+2024-04-24 19:29:31,570 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:29:31,572 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:29:31,572 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:29:31,574 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:29:31,685 DEBUG   SenderThread:30717 [sender.py:send():379] send: files
+2024-04-24 19:29:31,685 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file media/images/predicted_image_22_f3788754362b7bfbb6c9.png with policy now
+2024-04-24 19:29:31,689 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:29:31,691 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:29:31,692 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:29:31,694 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:29:31,918 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-24 19:29:31,919 DEBUG   SenderThread:30717 [sender.py:send():379] send: history
+2024-04-24 19:29:31,920 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: summary_record
+2024-04-24 19:29:31,922 INFO    SenderThread:30717 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-24 19:29:32,300 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/wandb-summary.json
+2024-04-24 19:29:32,300 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/original_image_21_b6641ed4b71b981b0b5c.png
+2024-04-24 19:29:32,301 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_created():271] file/dir created: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images/predicted_image_22_f3788754362b7bfbb6c9.png
+2024-04-24 19:29:32,302 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/media/images
+2024-04-24 19:29:32,385 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/rh2xj6am-media/images/predicted_image_22_f3788754362b7bfbb6c9.png
+2024-04-24 19:29:32,686 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/t6yq4goc-media/images/original_image_21_b6641ed4b71b981b0b5c.png
+2024-04-24 19:29:33,302 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:33,865 INFO    wandb-upload_0:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/2imkzrlu-media/images/predicted_image_22_f3788754362b7bfbb6c9.png
+2024-04-24 19:29:33,940 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:34,304 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:35,217 INFO    wandb-upload_1:30717 [upload_job.py:push():131] Uploaded file /tmp/tmp9jwkab8hwandb/ppns6npj-media/images/original_image_21_b6641ed4b71b981b0b5c.png
+2024-04-24 19:29:35,306 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:37,310 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:37,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:29:37,644 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:29:37,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:29:39,167 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:39,313 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:41,317 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:43,321 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:44,270 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:45,324 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:47,327 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:49,331 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:49,344 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:49,511 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:29:51,335 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:52,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:29:52,645 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:29:52,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:29:53,339 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:54,378 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:29:55,344 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:57,347 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:59,351 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:29:59,512 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:01,354 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:03,358 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:04,551 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:05,361 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:07,364 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:07,644 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:30:07,645 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:30:07,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:30:09,368 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:09,654 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:11,371 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:13,375 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:14,677 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:15,378 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:17,381 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:19,384 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:19,514 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:30:19,717 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:21,388 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:22,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:30:22,645 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:30:22,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:30:23,391 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:24,753 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:25,395 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:27,398 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:29,402 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:29,769 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:31,405 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:33,408 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:34,795 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:35,412 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:37,415 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:37,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:30:37,645 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:30:37,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:30:39,418 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:40,000 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:41,421 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:43,424 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:45,036 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:45,427 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:47,431 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:49,435 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:49,516 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:30:50,087 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:30:51,439 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:52,677 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:30:52,678 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:30:52,699 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:30:53,443 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:54,444 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log
+2024-04-24 19:30:55,108 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:00,109 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:05,109 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:07,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:31:07,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:31:07,646 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:31:10,959 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:15,960 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:19,519 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:31:21,521 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:22,645 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:31:22,646 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:31:22,688 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:31:26,922 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:31,923 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:36,924 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:37,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:31:37,647 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:31:37,688 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:31:41,983 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:46,984 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:49,523 DEBUG   SenderThread:30717 [sender.py:send():379] send: stats
+2024-04-24 19:31:52,525 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:31:52,646 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-24 19:31:52,647 DEBUG   SenderThread:30717 [sender.py:send_request():406] send_request: stop_status
+2024-04-24 19:31:52,688 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-24 19:31:57,987 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:32:02,988 DEBUG   HandlerThread:30717 [handler.py:handle_request():146] handle_request: status_report
+2024-04-24 19:32:04,572 INFO    Thread-25 :30717 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home2/sreenivas88/work/LP-IOANet/ada_sripts/wandb/run-20240424_191639-2h703goa/files/output.log

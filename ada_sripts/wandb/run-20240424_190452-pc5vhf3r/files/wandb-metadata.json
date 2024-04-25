@@ -1,0 +1,260 @@
+{
+    "os": "Linux-4.15.0-213-generic-x86_64-with-glibc2.27",
+    "python": "3.12.2",
+    "heartbeatAt": "2024-04-24T13:34:55.078663",
+    "startedAt": "2024-04-24T13:34:52.253238",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home2/sreenivas88/work/LP-IOANet/ada_sripts/h1.py",
+    "codePathLocal": "h1.py",
+    "codePath": "ada_sripts/h1.py",
+    "git": {
+        "remote": "https://github.com/PranavAga/LP-IOANet.git",
+        "commit": "ade52677ba04fadd2bfb98bf2a353779384eb083"
+    },
+    "email": "sreenivasbp03@gmail.com",
+    "root": "/home2/sreenivas88/work/LP-IOANet",
+    "host": "gnode041",
+    "username": "sreenivas88",
+    "executable": "/home2/sreenivas88/miniconda3/bin/python",
+    "cpu_count": 20,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 1292.2071249999997,
+        "min": 1200.0,
+        "max": 3400.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1697.29,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.444,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.269,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1618.348,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 2328.827,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1623.222,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.286,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.409,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1203.26,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.565,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1203.77,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1202.696,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1202.982,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1202.746,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.417,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.304,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.181,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1202.934,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1204.053,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.996,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1519.224,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.963,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.603,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1813.405,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 2041.086,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1594.144,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.759,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.759,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.309,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.605,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.171,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.792,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.97,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.979,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.107,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.051,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.368,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1200.783,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1199.983,
+            "min": 1200.0,
+            "max": 3400.0
+        },
+        {
+            "current": 1201.036,
+            "min": 1200.0,
+            "max": 3400.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 136.48257064819336,
+            "used": 66.17668151855469
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1080 Ti",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce GTX 1080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce GTX 1080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce GTX 1080 Ti",
+            "memory_total": 11811160064
+        }
+    ],
+    "memory": {
+        "total": 125.78691864013672
+    }
+}

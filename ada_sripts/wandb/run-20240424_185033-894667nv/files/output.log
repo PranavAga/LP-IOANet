@@ -1,0 +1,473 @@
+torch.Size([90, 3, 256, 192]) torch.Size([10, 3, 256, 192]) torch.Size([90, 3, 256, 192]) torch.Size([10, 3, 256, 192])
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home2/sreenivas88/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home2/sreenivas88/miniconda3/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth" to /home2/sreenivas88/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth
+
+
+
+100%|██████████| 233M/233M [00:06<00:00, 37.6MB/s]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+model size: 969.097MB
+Training started
+Epoch 1/50
+  0%|          | 0/9 [00:00<?, ?it/s]
+L12 loss: tensor(0.4679, device='cuda:0', grad_fn=<MeanBackward0>)
+
+  0%|          | 0/9 [00:01<?, ?it/s]
+{"AutoImageProcessor": "type", "CoordAtt": "type", "DEVICE": "str", "DecoderBlock": "type", "Image": "module", "MobileNetV1Model": "type", "SEED": "int", "SSIM": "ABCMeta", "UnetWithAT": "type", "UnetWithoutAT": "type", "X_test": "Tensor", "X_train": "Tensor", "Y_test": "Tensor", "Y_train": "Tensor", "accuracy": "function", "buffer": "Tensor", "buffer_size": "int", "config": "Config", "folder_path_removed": "str", "folder_path_shadow": "str", "get_decoder_layers": "function", "get_encoder_layers": "function", "get_ipython": "function", "get_loss": "function", "h_sigmoid": "type", "h_swish": "type", "img_removed": "Tensor", "img_shadow": "Tensor", "load_images_from_folder": "function", "loss1": "L1Loss", "loss_layer": "function", "loss_weights": "tuple", "lpips": "module", "lpips_layer": "LPIPS", "model": "DataParallel", "n_images": "int", "nn": "module", "np": "module", "optimizer": "Adam", "os": "module", "param": "Parameter", "param_size": "int", "plt": "module", "size_all_mb": "float", "torch": "module", "tqdm": "type", "train_dataset": "TensorDataset", "train_loader": "DataLoader", "train_test_split": "function", "training": "function", "transform": "Compose", "transforms": "module", "val_dataset": "TensorDataset", "val_loader": "DataLoader", "wandb": "module"}
+{"AutoImageProcessor": "type", "CoordAtt": "type", "DEVICE": "str", "DecoderBlock": "type", "Image": "module", "MobileNetV1Model": "type", "SEED": "int", "SSIM": "ABCMeta", "UnetWithAT": "type", "UnetWithoutAT": "type", "X_test": "Tensor", "X_train": "Tensor", "Y_test": "Tensor", "Y_train": "Tensor", "accuracy": "function", "buffer": "Tensor", "buffer_size": "int", "config": "Config", "folder_path_removed": "str", "folder_path_shadow": "str", "get_decoder_layers": "function", "get_encoder_layers": "function", "get_ipython": "function", "get_loss": "function", "h_sigmoid": "type", "h_swish": "type", "img_removed": "Tensor", "img_shadow": "Tensor", "load_images_from_folder": "function", "loss1": "L1Loss", "loss_layer": "function", "loss_weights": "tuple", "lpips": "module", "lpips_layer": "LPIPS", "model": "DataParallel", "n_images": "int", "nn": "module", "np": "module", "optimizer": "Adam", "os": "module", "param": "Parameter", "param_size": "int", "plt": "module", "size_all_mb": "float", "torch": "module", "tqdm": "type", "train_dataset": "TensorDataset", "train_loader": "DataLoader", "train_test_split": "function", "training": "function", "transform": "Compose", "transforms": "module", "val_dataset": "TensorDataset", "val_loader": "DataLoader", "wandb": "module"}
+{"AutoImageProcessor": "type", "CoordAtt": "type", "DEVICE": "str", "DecoderBlock": "type", "Image": "module", "MobileNetV1Model": "type", "SEED": "int", "SSIM": "ABCMeta", "UnetWithAT": "type", "UnetWithoutAT": "type", "X_test": "Tensor", "X_train": "Tensor", "Y_test": "Tensor", "Y_train": "Tensor", "accuracy": "function", "buffer": "Tensor", "buffer_size": "int", "config": "Config", "folder_path_removed": "str", "folder_path_shadow": "str", "get_decoder_layers": "function", "get_encoder_layers": "function", "get_ipython": "function", "get_loss": "function", "h_sigmoid": "type", "h_swish": "type", "img_removed": "Tensor", "img_shadow": "Tensor", "load_images_from_folder": "function", "loss1": "L1Loss", "loss_layer": "function", "loss_weights": "tuple", "lpips": "module", "lpips_layer": "LPIPS", "model": "DataParallel", "n_images": "int", "nn": "module", "np": "module", "optimizer": "Adam", "os": "module", "param": "Parameter", "param_size": "int", "plt": "module", "size_all_mb": "float", "torch": "module", "tqdm": "type", "train_dataset": "TensorDataset", "train_loader": "DataLoader", "train_test_split": "function", "training": "function", "transform": "Compose", "transforms": "module", "val_dataset": "TensorDataset", "val_loader": "DataLoader", "wandb": "module"}
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+  0%|          | 0/9 [00:00<?, ?it/s]
+model size: 969.097MB
+Training started
+
+
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.00it/s]
+Epoch 0/50: |>train_loss: 8.42314248614841, val_loss: 8.372169494628906, val_accuracy: 0.17215502262115479
+Original Image
+Epoch 2/50
+
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.04it/s]
+Epoch 1/50: |>train_loss: 8.419171333312988, val_loss: 8.484891891479492, val_accuracy: 0.12173224985599518
+Original Image
+Epoch 3/50
+
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.04it/s]
+Epoch 2/50: |>train_loss: 8.421059078640408, val_loss: 8.558195114135742, val_accuracy: 0.1211211234331131
+Original Image
+Epoch 4/50
+
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.03it/s]
+Epoch 3/50: |>train_loss: 8.40681521097819, val_loss: 8.642415046691895, val_accuracy: 0.14416012167930603
+Original Image
+Epoch 5/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.01it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 4/50: |>train_loss: 8.422093073527018, val_loss: 8.693302154541016, val_accuracy: 0.1387634128332138
+Original Image
+Epoch 6/50
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.02it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 5/50: |>train_loss: 8.41853470272488, val_loss: 8.571907043457031, val_accuracy: 0.16674022376537323
+Original Image
+Epoch 7/50
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.02it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 6/50: |>train_loss: 8.419650077819824, val_loss: 8.746709823608398, val_accuracy: 0.1701718121767044
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:08<00:00,  1.01it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 7/50: |>train_loss: 8.409855630662706, val_loss: 8.78179931640625, val_accuracy: 0.16551005840301514
+Original Image
+
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 8/50: |>train_loss: 8.407677120632595, val_loss: 8.685248374938965, val_accuracy: 0.1623171865940094
+Original Image
+Epoch 10/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 9/50: |>train_loss: 8.42412535349528, val_loss: 8.68166732788086, val_accuracy: 0.1582181453704834
+Original Image
+Epoch 11/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 10/50: |>train_loss: 8.41035885281033, val_loss: 8.736738204956055, val_accuracy: 0.1677895188331604
+Original Image
+Epoch 12/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 11/50: |>train_loss: 8.419655481974283, val_loss: 8.68954849243164, val_accuracy: 0.20160040259361267
+Original Image
+Epoch 13/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 12/50: |>train_loss: 8.416277885437012, val_loss: 8.644856452941895, val_accuracy: 0.1775815784931183
+Original Image
+Epoch 14/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 13/50: |>train_loss: 8.414883931477865, val_loss: 8.692817687988281, val_accuracy: 0.19702839851379395
+Original Image
+Epoch 15/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.03s/it]
+Epoch 14/50: |>train_loss: 8.424950758616129, val_loss: 8.705114364624023, val_accuracy: 0.21831205487251282
+Original Image
+100%|██████████| 9/9 [00:09<00:00,  1.03s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:07<00:00,  1.01it/s]
+Epoch 15/50: |>train_loss: 8.41713809967041, val_loss: 8.722299575805664, val_accuracy: 0.19992369413375854
+Original Image
+100%|██████████| 9/9 [00:08<00:00,  1.00it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:07<00:00,  1.01it/s]
+Epoch 16/50: |>train_loss: 8.414995935228136, val_loss: 8.720491409301758, val_accuracy: 0.17169460654258728
+Original Image
+100%|██████████| 9/9 [00:08<00:00,  1.00it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.01s/it]
+Epoch 17/50: |>train_loss: 8.418377240498861, val_loss: 8.70152759552002, val_accuracy: 0.16669780015945435
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:00,  1.00it/s]
+Epoch 18/50: |>train_loss: 8.413400226169163, val_loss: 8.719919204711914, val_accuracy: 0.17612889409065247
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.02s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 19/50: |>train_loss: 8.41602357228597, val_loss: 8.747957229614258, val_accuracy: 0.1868768036365509
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 20/50: |>train_loss: 8.409290790557861, val_loss: 8.668060302734375, val_accuracy: 0.18971219658851624
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 21/50: |>train_loss: 8.419034269120958, val_loss: 8.762455940246582, val_accuracy: 0.18525977432727814
+Original Image
+Epoch 23/50
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 22/50: |>train_loss: 8.413848559061686, val_loss: 8.802959442138672, val_accuracy: 0.1896185576915741
+Original Image
+Epoch 24/50
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 23/50: |>train_loss: 8.404590606689453, val_loss: 8.6911039352417, val_accuracy: 0.16622154414653778
+Original Image
+Epoch 25/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 24/50: |>train_loss: 8.413775232103136, val_loss: 8.665254592895508, val_accuracy: 0.18736496567726135
+Original Image
+Epoch 26/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 25/50: |>train_loss: 8.416353331671822, val_loss: 8.726110458374023, val_accuracy: 0.17786502838134766
+Original Image
+Epoch 27/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 26/50: |>train_loss: 8.424932267930773, val_loss: 8.733654022216797, val_accuracy: 0.16984139382839203
+Original Image
+Epoch 28/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 27/50: |>train_loss: 8.407062689463297, val_loss: 8.705913543701172, val_accuracy: 0.21150580048561096
+Original Image
+Epoch 29/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 28/50: |>train_loss: 8.42805814743042, val_loss: 8.712268829345703, val_accuracy: 0.1817799061536789
+Original Image
+Epoch 30/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.03s/it]
+Epoch 29/50: |>train_loss: 8.42327520582411, val_loss: 8.691978454589844, val_accuracy: 0.17851723730564117
+100%|██████████| 9/9 [00:09<00:00,  1.03s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.00s/it]
+Epoch 30/50: |>train_loss: 8.419220818413628, val_loss: 8.71351432800293, val_accuracy: 0.20782312750816345
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:00,  1.00it/s]
+Epoch 31/50: |>train_loss: 8.415218353271484, val_loss: 8.715529441833496, val_accuracy: 0.21425533294677734
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 32/50: |>train_loss: 8.408405462900797, val_loss: 8.699067115783691, val_accuracy: 0.20462921261787415
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 33/50: |>train_loss: 8.418699052598742, val_loss: 8.723785400390625, val_accuracy: 0.2036031186580658
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 34/50: |>train_loss: 8.413181198967827, val_loss: 8.740467071533203, val_accuracy: 0.17371492087841034
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 35/50: |>train_loss: 8.410746468438042, val_loss: 8.757440567016602, val_accuracy: 0.21102175116539001
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 36/50: |>train_loss: 8.42135959201389, val_loss: 8.753312110900879, val_accuracy: 0.17448031902313232
+Original Image
+Epoch 38/50
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 37/50: |>train_loss: 8.419721709357368, val_loss: 8.787528991699219, val_accuracy: 0.16713042557239532
+Original Image
+Epoch 39/50
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 38/50: |>train_loss: 8.424982388814291, val_loss: 8.738619804382324, val_accuracy: 0.1678074300289154
+Original Image
+Epoch 40/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 39/50: |>train_loss: 8.424381468031141, val_loss: 8.815078735351562, val_accuracy: 0.16905194520950317
+Original Image
+Epoch 41/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 40/50: |>train_loss: 8.417123900519478, val_loss: 8.757611274719238, val_accuracy: 0.17861880362033844
+Original Image
+Epoch 42/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Epoch 41/50: |>train_loss: 8.426413853963217, val_loss: 8.733455657958984, val_accuracy: 0.16195102035999298
+Original Image
+Epoch 43/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 42/50: |>train_loss: 8.413802676730686, val_loss: 8.709346771240234, val_accuracy: 0.2003980129957199
+Original Image
+Epoch 44/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.00s/it]
+Epoch 43/50: |>train_loss: 8.417681905958387, val_loss: 8.701708793640137, val_accuracy: 0.18750981986522675
+Original Image
+Epoch 45/50
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+
+
+
+
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.05s/it]
+Epoch 44/50: |>train_loss: 8.435783280266655, val_loss: 8.780145645141602, val_accuracy: 0.1902155876159668
+100%|██████████| 9/9 [00:09<00:00,  1.04s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+ 89%|████████▉ | 8/9 [00:07<00:00,  1.00it/s]
+Epoch 45/50: |>train_loss: 8.413643625047472, val_loss: 8.680010795593262, val_accuracy: 0.2209910899400711
+100%|██████████| 9/9 [00:08<00:00,  1.00it/s]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 46/50: |>train_loss: 8.406126976013184, val_loss: 8.710123062133789, val_accuracy: 0.18271702527999878
+Original Image
+
+
+
+
+100%|██████████| 9/9 [00:09<00:00,  1.01s/it]
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]
+Epoch 47/50: |>train_loss: 8.41543017493354, val_loss: 8.716179847717285, val_accuracy: 0.16922153532505035
+Original Image
+ 22%|██▏       | 2/9 [00:02<00:07,  1.02s/it]
+ 44%|████▍     | 4/9 [00:04<00:05,  1.02s/it]
+ 67%|██████▋   | 6/9 [00:06<00:03,  1.01s/it]
+ 89%|████████▉ | 8/9 [00:08<00:01,  1.01s/it]
+  0%|          | 0/9 [00:00<?, ?it/s]e for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+  0%|          | 0/9 [00:00<?, ?it/s]e for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 48/50: |>train_loss: 8.432355138990614, val_loss: 8.657710075378418, val_accuracy: 0.20880703628063202
+Original Image
+ 22%|██▏       | 2/9 [00:02<00:07,  1.01s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+ 33%|███▎      | 3/9 [00:03<00:06,  1.00s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+ 56%|█████▌    | 5/9 [00:05<00:04,  1.10s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+ 78%|███████▊  | 7/9 [00:07<00:02,  1.04s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+100%|██████████| 9/9 [00:09<00:00,  1.05s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+100%|██████████| 9/9 [00:09<00:00,  1.05s/it]show with RGB data ([0..1] for floats or [0..255] for integers).
+Epoch 49/50: |>train_loss: 8.41212272644043, val_loss: 8.771997451782227, val_accuracy: 0.1720069795846939
+Original Image
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).

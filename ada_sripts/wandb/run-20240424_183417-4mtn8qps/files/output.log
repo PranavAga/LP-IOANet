@@ -1,0 +1,6 @@
+
+torch.Size([90, 3, 256, 192]) torch.Size([10, 3, 256, 192]) torch.Size([90, 3, 256, 192]) torch.Size([10, 3, 256, 192])
+model size: 969.097MB
+Using cuda:0 DEVICE
+Training
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.login() after wandb.init() has no effect.

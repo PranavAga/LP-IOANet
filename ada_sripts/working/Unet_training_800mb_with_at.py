@@ -60,8 +60,8 @@ def load_images_from_folder(folder_path):
 # folder_path_removed = f"./target"
 
 # TODO for testing 
-folder_path_shadow = f"../data/test/input"
-folder_path_removed = f"../data/test/target"
+folder_path_shadow = f"../../data/192,256/train/input"
+folder_path_removed = f"../../data/192,256/train/target"
 
 # n_images = 500
 # img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]

@@ -17,6 +17,8 @@ from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 import wandb
 import torch
+import PIL
+import lpips
 
 SEED = 0
 
@@ -38,13 +40,26 @@ wandb.init(project="smai-proj-unet", config={
     "dataset": "Shadoc-lowres",
     "architecture": "UNetWithoutAT",
     
-    "epochs": 500,
-    "learning_rate": 5e-1,
+    "epochs": 50,
+    "learning_rate": 0.01,
     "batch_size": 10,
 })
 config = wandb.config
 
-# %%
+# %% 
+""" Normalization class """
+
+norm_mean=[0.485, 0.456, 0.406]
+norm_std=[0.229, 0.224, 0.225]
+# unromalize the image
+def unormalize_np_image(image, mean=norm_mean, std=norm_std):
+    image = image * std + mean
+    image = image * 255
+    image = np.clip(image, 0, 255)
+    image = image.astype(np.uint8)
+    return image
+
+# %% 
 """ ## Load Data """
 
 def load_images_from_folder(folder_path):
@@ -60,20 +75,22 @@ def load_images_from_folder(folder_path):
 # folder_path_removed = f"./target"
 
 # TODO for testing 
-folder_path_shadow = f"../data/test/input"
-folder_path_removed = f"../data/test/target"
+folder_path_shadow = f"../data/192,256/train/input"
+folder_path_removed = f"../data/192,256/train/target"
 
-# n_images = 500
-# img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
-# img_removed = load_images_from_folder(folder_path_removed)[:n_images]
+n_images = 4000
+img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
+img_removed = load_images_from_folder(folder_path_removed)[:n_images]
 
-img_shadow = load_images_from_folder(folder_path_shadow)
-img_removed = load_images_from_folder(folder_path_removed)
+# img_shadow = load_images_from_folder(folder_path_shadow)
+# img_removed = load_images_from_folder(folder_path_removed)
+
+
 
 transform = transforms.Compose([
     transforms.Resize((256,192)),  # Ensure the size
-    # transforms.Resize((170,128)),  # Ensure the size
     transforms.ToTensor(),          # Convert images to tensors
+    transforms.Normalize(mean=norm_mean, std=norm_std)
 ])
 
 img_shadow = [transform(img) for img in img_shadow]
@@ -373,9 +390,13 @@ class UnetWithoutAT(nn.Module):
     
 # %%
 """ ## Training Functions """
+# loss functions
+loss1 = nn.L1Loss().to(DEVICE)
+lpips_layer = lpips.LPIPS(net='alex').to(DEVICE)
+# %%
+
 
 def training(model, train_loader, n_epochs=3, validation=False, val_loader=None, print_every_epoch=True,optimizer=None):
-    model = model.to(DEVICE)
     if print_every_epoch: print("Training started")
     
     for epoch in (range(n_epochs)):
@@ -385,10 +406,9 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
         
         for x_train, y_train in tqdm(train_loader):
             y_pred = model(x_train)
-            loss = loss_layer(model,y_pred,y_train)
+            loss = loss_layer(model,y_pred,y_train)            
             loss.backward()
             optimizer.zero_grad()
-            
             running_loss += loss.item()
             
         metrices = {"train/loss": running_loss/len(train_loader),
@@ -410,14 +430,19 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
 
             # Extract the original image and convert it to numpy array
             original_image = x_val[random_index].permute(1, 2, 0).cpu().numpy()
-
-            # Log the original image to Weights & Biases
-            wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
+            gt_image = y_val[random_index].permute(1, 2, 0).cpu().numpy()
 
             # Compute the predicted image using the model
             predicted_image = model(x_val[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0).numpy()
 
-            # Log the predicted image to Weights & Biases
+            # unormalize the image
+            original_image = unormalize_np_image(original_image)
+            gt_image = unormalize_np_image(gt_image)
+            predicted_image = unormalize_np_image(predicted_image)
+
+            # Log the original image to Weights & Biases
+            wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
+            wandb.log({"gt_image": [wandb.Image(gt_image, caption="GT Image")]})
             wandb.log({"predicted_image": [wandb.Image(predicted_image, caption="Predicted Image")]})
             
             # # a random index to print the image
@@ -436,9 +461,12 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
             # print image
             if print_every_epoch: 
                 print("Original Image")
-                fig, ax = plt.subplots(1, 2)
+                fig, ax = plt.subplots(1, 3, figsize=(15, 5))
                 ax[0].imshow(original_image)
-                ax[1].imshow(predicted_image) 
+                ax[1].imshow(gt_image)
+                ax[2].imshow(predicted_image) 
+                for a in ax:
+                    a.axis('off')                    
                 plt.show()
                 
         wandb.log(metrices)     
@@ -448,13 +476,16 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
     wandb.finish()
 
 def loss_layer(model, y_pred, y):
-    loss1 = nn.L1Loss().cuda()
     y_pred = y_pred.to(DEVICE)
     y = y.to(DEVICE)
     '''
     Considering weighted loss
     '''
-    return loss_weights[0] * loss1(y_pred, y)
+    # lpips loss mean as it return array of scores
+    lpips_loss = lpips_layer.forward(y_pred, y)
+    mean_lpips_loss = torch.mean(lpips_loss)
+
+    return loss_weights[0] * loss1(y_pred, y) + loss_weights[1] * mean_lpips_loss
 
 def get_loss(model, x, y):
     with torch.no_grad():
@@ -472,7 +503,7 @@ def accuracy(model, x, y):
 # %%
 """ ## Loading Model and Training """
 torch.cuda.empty_cache()
-model = UnetWithAT()
+model = UnetWithAT().cuda()
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
@@ -498,16 +529,26 @@ optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
 training(model,train_loader, n_epochs=config.epochs, print_every_epoch=True, optimizer=optimizer, validation=True, val_loader=val_loader)
 
 # %%
+""" Save the model """
+# save the model
+torch.save(model.state_dict(), "../models/model_att_4000_w10_5.pth")
+print(f"Model saved successfully at path ../models/model_att_4000_w10_5.pth",flush=True)
+
+
+# %%
 """ Inferencing """
 random_index = np.random.randint(0, len(X_test))
 
 # print the original image
 print("Original Image")
-plt.imshow(X_test[random_index].permute(1, 2, 0))
+plt.imshow(unormalize_np_image(X_test[random_index].permute(1, 2, 0)))
 plt.show()
 
 # print the predicted image
 print("Predicted Image")
 plt.imshow(model(X_test[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0))
 plt.show()
+
+# %%
+
 # %%
