@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -A research
-#SBATCH -p long
-#SBATCH -w gnode040
+#SBATCH --time=20:00:00
+#SBATCH -w gnode041
 #SBATCH -n 40
 #SBATCH --mem-per-cpu=2G
 #SBATCH --gres=gpu:4

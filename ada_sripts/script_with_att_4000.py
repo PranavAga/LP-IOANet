@@ -518,8 +518,8 @@ torch.cuda.empty_cache()
 model = UnetWithAT().cuda()
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
-train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
-val_dataset = torch.utils.data.TensorDataset(X_test[:10], Y_test[:10])
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True,drop_last=True)
+val_dataset = torch.utils.data.TensorDataset(X_test, Y_test)
 val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size, shuffle=True)
 
 model = nn.DataParallel(model, device_ids=[0,1,2,3])
