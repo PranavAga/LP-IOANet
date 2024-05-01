@@ -343,7 +343,7 @@ class UnetWithAT(nn.Module):
     
     def predict(self,x):
         with torch.no_grad():
-            return model(x)
+            return self(x)
     
 
 class UnetWithoutAT(nn.Module):
@@ -404,7 +404,7 @@ class UnetWithoutAT(nn.Module):
     
     def predict(self,x):
         with torch.no_grad():
-            return model(x)
+            return self(x)
     
 # %%
 """ ## Loss Functions """
@@ -450,7 +450,7 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
             metrices['val/loss'] /= len(val_loader)
             metrices['val/accuracy'] /= len(val_loader)
             
-            if epoch==0  or epoch==n_epochs//2 or epoch==n_epochs-1:
+            if epoch%10==0  or epoch==n_epochs-1:
 
                 x_vis = x_val
                 y_vis = y_val
@@ -554,7 +554,7 @@ print("Saving model", flush=True)
 """ Save the model """
 # save the model
 model_path = f"./shadrem-att.pth"
-torch.save(model.state_dict(), model_path)
+torch.save(model.module.state_dict(), model_path)
 print(f"Model saved successfully at path : {model_path}",flush=True)
 # torch.save(model.state_dict(), f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth")
 # print(f"Model saved successfully at path :",f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth",flush=True)

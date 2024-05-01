@@ -13,7 +13,6 @@ import os
 import numpy as np
 import torchvision.transforms as transforms
 from torchmetrics.image import StructuralSimilarityIndexMeasure as SSIM
-# import matplotlib.pyplot as plt
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 import wandb
@@ -29,7 +28,8 @@ torch.manual_seed(SEED)
 torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic=True
 
-DEVICE = "cuda:0"
+DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
+assert DEVICE == "cuda:0"
 print(f"Using {DEVICE} DEVICE",flush=True)
 
 print("Libraries imported", flush=True)
@@ -37,12 +37,13 @@ print("Libraries imported", flush=True)
 print("Logging in to wandb\n\n", flush=True)
 wandb.login()
 print("Training", flush=True)
-wandb.init(project="smai-proj-unet", config={
-    "dataset": "Shadoc-lowres",
-    "architecture": "UNetWithoutAT",
+wandb.init(project="smai-proj-shadow-rem", config={
+    "dataset": "Shadoc-192,256",
+    "architecture": "UNetWithAT",
     
+    "n_images":4000,
     "epochs": 200,
-    "learning_rate": 0.01,
+    "learning_rate": 0.001,
     "batch_size": 32,
 })
 config = wandb.config
@@ -73,17 +74,13 @@ def load_images_from_folder(folder_path):
             images.append(img)
     return images
 
-# folder_path_shadow = f"./input"
-# folder_path_removed = f"./target"
+folder_path_shadow = f"./input"
+folder_path_removed = f"./target"
 
-# TODO for testing 
-folder_path_shadow = f"../data/192,256/train/input"
-folder_path_removed = f"../data/192,256/train/target"
+# folder_path_shadow = f"../data/192,256/train/input"
+# folder_path_removed = f"../data/192,256/train/target"
 
-folder_path_test_shadow = f"../data/192,256/test/input"
-folder_path_test_removed = f"../data/192,256/test/target"
-
-n_images = 2000
+n_images = config.n_images
 img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
 img_removed = load_images_from_folder(folder_path_removed)[:n_images]
 
@@ -203,7 +200,7 @@ def get_encoder_layers():
     return mobilenet_seq_blocks, model.conv_stem, image_processor
 
 class DecoderBlock(nn.Module):
-	def __init__(self, in_channels, out_channels, expansion=3, do_up_sampling=True):
+	def __init__(self, in_channels, out_channels, expansion=2, do_up_sampling=True):
 		"""
 		Decoder block module.
 
@@ -344,6 +341,10 @@ class UnetWithAT(nn.Module):
         
         return x + temp_in_x
     
+    def predict(self,x):
+        with torch.no_grad():
+            return self(x)
+    
 
 class UnetWithoutAT(nn.Module):
     
@@ -401,9 +402,13 @@ class UnetWithoutAT(nn.Module):
             # print(f"Decoder block {indx} output shape: {x.shape}")
         return 0.5 * self.out_image_stem_layer(x) + temp_in_x
     
+    def predict(self,x):
+        with torch.no_grad():
+            return self(x)
+    
 # %%
 """ ## Loss Functions """
-print("laoding loss functions", flush=True)
+print("loading loss functions", flush=True)
 # loss functions
 loss1 = nn.L1Loss().to(DEVICE)
 lpips_layer = lpips.LPIPS(net='alex').to(DEVICE)
@@ -421,10 +426,14 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
         
         for x_train, y_train in tqdm(train_loader):
             y_pred = model(x_train)
+
+            optimizer.zero_grad()
             loss = loss_layer(model,y_pred,y_train)            
             loss.backward()
-            optimizer.zero_grad()
+            optimizer.step()
+
             running_loss += loss.item()
+            # epoch_loss += x_train.shape[0]*loss.item()
             
         metrices = {"train/loss": running_loss/len(train_loader),
                     "epoch": epoch+1, 
@@ -441,48 +450,38 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
             metrices['val/loss'] /= len(val_loader)
             metrices['val/accuracy'] /= len(val_loader)
             
-            random_index = 1
+            if epoch%10==0  or epoch==n_epochs-1:
 
-            # Extract the original image and convert it to numpy array
-            original_image = x_val[random_index].permute(1, 2, 0).cpu().numpy()
-            gt_image = y_val[random_index].permute(1, 2, 0).cpu().numpy()
+                x_vis = x_val
+                y_vis = y_val
+                # Extract the original image and convert it to numpy array
+                original_image = x_vis[0].permute(1, 2, 0).cpu().numpy()
+                gt_image = y_vis[0].permute(1, 2, 0).cpu().numpy()
 
-            # Compute the predicted image using the model
-            predicted_image = model(x_val[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0).numpy()
+                # Compute the predicted image using the model
+                predicted_image = model.module.predict(x_vis[0].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0).numpy()
 
-            # unormalize the image
-            original_image = unormalize_np_image(original_image)
-            gt_image = unormalize_np_image(gt_image)
-            predicted_image = unormalize_np_image(predicted_image)
+                # unormalize the image
+                original_image = unormalize_np_image(original_image)
+                gt_image = unormalize_np_image(gt_image)
+                predicted_image = unormalize_np_image(predicted_image)
 
-            # Log the original image to Weights & Biases
-            wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
-            wandb.log({"gt_image": [wandb.Image(gt_image, caption="GT Image")]})
-            wandb.log({"predicted_image": [wandb.Image(predicted_image, caption="Predicted Image")]})
+                # Log the original image to Weights & Biases
+                wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
+                wandb.log({"gt_image": [wandb.Image(gt_image, caption="GT Image")]})
+                wandb.log({"predicted_image": [wandb.Image(predicted_image, caption="Predicted Image")]})
             
-            # # a random index to print the image
-            # random_index = 1
-            # # print the original image and store it in wandb
-            # original_image = x_val[random_index].permute(1, 2, 0)
-            # print("original_image: ",original_image.shape)
-            # wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
-            
-            # # print the predicted image and store it in wandb
-            # predicted_image = model(x_val[random_index].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0)   
-            # print("predicted_image: ",predicted_image.shape)             
-            # wandb.log({"predicted_image": [wandb.Image(predicted_image, caption="Predicted Image")]})
-            
-            if print_every_epoch: print(f"Epoch {epoch}/{n_epochs}: |>train_loss: {metrices['train/loss']}, val_loss: {metrices['val/loss']}, val_accuracy: {metrices['val/accuracy']}")
-            # print image
-            if print_every_epoch: 
-                print("Original Image")
-                fig, ax = plt.subplots(1, 3, figsize=(15, 5))
-                ax[0].imshow(original_image)
-                ax[1].imshow(gt_image)
-                ax[2].imshow(predicted_image) 
-                for a in ax:
-                    a.axis('off')                    
-                plt.show()
+            # if print_every_epoch: print(f"Epoch {epoch}/{n_epochs}: |>train_loss: {metrices['train/loss']}, val_loss: {metrices['val/loss']}, val_accuracy: {metrices['val/accuracy']}")
+            # # print image
+            # if print_every_epoch: 
+            #     print("Original Image")
+            #     fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+            #     ax[0].imshow(original_image)
+            #     ax[1].imshow(gt_image)
+            #     ax[2].imshow(predicted_image) 
+            #     for a in ax:
+            #         a.axis('off')                    
+            #     plt.show()
                 
         wandb.log(metrices)   
             
@@ -522,9 +521,9 @@ torch.cuda.empty_cache()
 model = UnetWithoutAT().cuda()
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
-train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
-val_dataset = torch.utils.data.TensorDataset(X_test[:10], Y_test[:10])
-val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size, shuffle=True)
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True,drop_last=True)
+val_dataset = torch.utils.data.TensorDataset(X_test, Y_test)
+val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size, shuffle=False)
 
 model = nn.DataParallel(model, device_ids=[0,1,2,3])
 
@@ -554,8 +553,11 @@ print("Saving model", flush=True)
 # save the model with epoch done in the name  
 """ Save the model """
 # save the model
-torch.save(model.state_dict(), f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth")
-print(f"Model saved successfully at path :",f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth",flush=True)
+model_path = f"./shadrem-withoutatt.pth"
+torch.save(model.module.state_dict(), model_path)
+print(f"Model saved successfully at path : {model_path}",flush=True)
+# torch.save(model.state_dict(), f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth")
+# print(f"Model saved successfully at path :",f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth",flush=True)
  # %%
 torch.cuda.empty_cache()
 
