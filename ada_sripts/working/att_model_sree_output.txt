@@ -1,0 +1,42 @@
+==========================================
+SLURM_JOB_ID = 1130521
+SLURM_NODELIST = gnode040
+SLURM_JOB_GPUS = 0,1
+==========================================
+PWD: /home2/sreenivas88/work/LP-IOANet/ada_sripts/working
+PWD: /scratch/sreenivas88
+list:
+temp_data
+4
+transferd data
+
+>	 Importing lib....
+Using cuda:0 DEVICE
+
+>	 Libraries imported
+
+>	 Logging in to wandb
+
+
+Training
+
+>	 loading temp files
+torch.Size([6155, 3, 256, 192]) torch.Size([324, 3, 256, 192]) torch.Size([6155, 3, 256, 192]) torch.Size([324, 3, 256, 192])
+
+>	 loading loss functions
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home2/sreenivas88/miniconda3/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+
+>	 loss functions loaded
+
+>	 loading Models and making dataloaders
+
+>	 Model loaded
+
+>	 Training ...........
+
+>	 Training done
+
+>	 Saving model
+Model saved successfully at path : ./shadrem-att.pth
+trained model

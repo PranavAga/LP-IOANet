@@ -1,7 +1,5 @@
-# %%
-""" ## Imports
-"""
-print("Importing lib....", flush=True)
+# %% """ ## Imports """
+print("\n>\t","Importing lib....", flush=True)
 
 import torch
 from torch import nn
@@ -19,6 +17,7 @@ import wandb
 import torch
 import PIL
 import lpips
+from torch.optim.lr_scheduler import StepLR
 
 SEED = 0
 
@@ -32,38 +31,32 @@ DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 assert DEVICE == "cuda:0"
 print(f"Using {DEVICE} DEVICE",flush=True)
 
-print("Libraries imported", flush=True)
-# %% 
-print("Logging in to wandb\n\n", flush=True)
+print("\n>\t","Libraries imported", flush=True)
+# %% """ ## Wandb Login and Initialize ""
+print("\n>\t","Logging in to wandb\n\n", flush=True)
 wandb.login()
 print("Training", flush=True)
 wandb.init(project="smai-proj-shadow-rem", config={
     "dataset": "Shadoc-192,256",
     "architecture": "UNetWithAT",
-    
-    "n_images":4000,
-    "epochs": 200,
-    "learning_rate": 0.001,
+    "log_images_interval": 50,
+    "log_images_indices": [0, 7, 20, 30, 40],
+    "test_ratio": 0.05,
+    "epochs": 500,
+    "learning_rate": 0.002,
+    "step_size": 10,
+    "gamma": 0.95,
     "batch_size": 32,
 })
 config = wandb.config
 
-# %% 
-""" Normalization class """
+# %%  """ Normalization class """
 
 norm_mean=[0.485, 0.456, 0.406]
 norm_std=[0.229, 0.224, 0.225]
 # unromalize the image
 def unormalize_np_image(image, mean=norm_mean, std=norm_std):
-    image = image * std + mean
-    image = image * 255
-    image = np.clip(image, 0, 255)
-    image = image.astype(np.uint8)
-    return image
-
-# %% 
-""" ## Load Data """
-print("Loading Data", flush=True)
+    return np.clip((image * std + mean) * 255, 0, 255).astype(np.uint8)
 
 def load_images_from_folder(folder_path):
     images = []
@@ -74,42 +67,69 @@ def load_images_from_folder(folder_path):
             images.append(img)
     return images
 
-folder_path_shadow = f"./input"
-folder_path_removed = f"./target"
+# %% """ ## Load Data """
+# print("\n>\t","Loading Data", flush=True)
+
+
+# # folder_path_shadow = f"./input"
+# # folder_path_removed = f"./target"
 
 # folder_path_shadow = f"../data/192,256/train/input"
 # folder_path_removed = f"../data/192,256/train/target"
 
-n_images = config.n_images
-img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
-img_removed = load_images_from_folder(folder_path_removed)[:n_images]
+# # n_images = 2000
+# # img_shadow = load_images_from_folder(folder_path_shadow)[:n_images]
+# # img_removed = load_images_from_folder(folder_path_removed)[:n_images]
 
-# img_shadow = load_images_from_folder(folder_path_shadow)
-# img_removed = load_images_from_folder(folder_path_removed)
+# img_shadow_raw = load_images_from_folder(folder_path_shadow)
+# img_removed_raw = load_images_from_folder(folder_path_removed)
 
-transform = transforms.Compose([
-    transforms.Resize((256,192)),  # Ensure the size
-    transforms.ToTensor(),          # Convert images to tensors
-    transforms.Normalize(mean=norm_mean, std=norm_std)
-])
+# transform = transforms.Compose([
+#     transforms.Resize((256,192)),  # Ensure the size
+#     transforms.ToTensor(),          # Convert images to tensors
+#     transforms.Normalize(mean=norm_mean, std=norm_std)
+# ])
 
-img_shadow = [transform(img) for img in img_shadow]
-img_shadow = torch.stack(img_shadow)
+# img_shadow_ = [transform(img) for img in img_shadow_raw]
+# img_shadow = torch.stack(img_shadow_)
+# del img_shadow_
+# del img_shadow_raw
+# print('Normalized input images',flush=True)
 
-img_removed = [transform(img) for img in img_removed]
-img_removed = torch.stack(img_removed)
+# img_removed_ = [transform(img) for img in img_removed_raw]
+# img_removed = torch.stack(img_removed_)
+# del img_removed_
+# del img_removed_raw
+# print('Normalized target images',flush=True)
 
-X_train, X_test, Y_train, Y_test = train_test_split(img_shadow, img_removed, test_size=0.01)
 
-X_train = torch.tensor(X_train)
-X_test = torch.tensor(X_test)
-Y_train = torch.tensor(Y_train)
-Y_test = torch.tensor(Y_test) 
+# X_train, X_test, Y_train, Y_test = train_test_split(img_shadow, img_removed, test_size=config.test_ratio, random_state=SEED)
+
+# X_train = torch.tensor(X_train)
+# X_test = torch.tensor(X_test)
+# Y_train = torch.tensor(Y_train)
+# Y_test = torch.tensor(Y_test) 
+
+# print(X_train.shape,X_test.shape,Y_train.shape,Y_test.shape,flush=True)
+# print("\n>\t","data loaded", flush=True)
+
+# %% """ ## Save the data """
+# # dump the data
+# torch.save(X_train, "./temp_data/X_train.pth")
+# torch.save(X_test, "./temp_data/X_test.pth")
+# torch.save(Y_train, "./temp_data/Y_train.pth")
+# torch.save(Y_test, "./temp_data/Y_test.pth")
+
+# %% """ ## loading temp files """
+print("\n>\t","loading temp files", flush=True)
+X_train = torch.load("./temp_data/X_train.pth")
+X_test = torch.load("./temp_data/X_test.pth")
+Y_train = torch.load("./temp_data/Y_train.pth")
+Y_test = torch.load("./temp_data/Y_test.pth")
 
 print(X_train.shape,X_test.shape,Y_train.shape,Y_test.shape,flush=True)
-print("data loaded", flush=True)
-# %%
-""" ## Layers Definition """
+
+# %% """ ## Layers Definition """
 class h_sigmoid(nn.Module):
     def __init__(self, inplace=True):
         super(h_sigmoid, self).__init__()
@@ -275,8 +295,7 @@ def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
             decoder_blocks.append(DecoderBlock(out_size*4, out_size))
     return decoder_blocks
 
-# %%
-""" ## Model Definition """
+# %% """ ## Model Definition """
 class UnetWithAT(nn.Module):
     
     def __init__(self, lr=0.5):
@@ -343,7 +362,7 @@ class UnetWithAT(nn.Module):
     
     def predict(self,x):
         with torch.no_grad():
-            return self(x)
+            return model(x)
     
 
 class UnetWithoutAT(nn.Module):
@@ -404,20 +423,32 @@ class UnetWithoutAT(nn.Module):
     
     def predict(self,x):
         with torch.no_grad():
-            return self(x)
+            return model(x)
     
-# %%
-""" ## Loss Functions """
-print("loading loss functions", flush=True)
+# %% """ ## Loss Functions """
+print("\n>\t","loading loss functions", flush=True)
 # loss functions
 loss1 = nn.L1Loss().to(DEVICE)
 lpips_layer = lpips.LPIPS(net='alex').to(DEVICE)
-print("loss functions loaded", flush=True)
-# %%
-""" Training Functions """
+print("\n>\t","loss functions loaded", flush=True)
+# %% """ Training Functions """
 
 def training(model, train_loader, n_epochs=3, validation=False, val_loader=None, print_every_epoch=True,optimizer=None):
     if print_every_epoch: print("Training started")
+    
+    # log the test gt and orginal image to wandb
+    for idx in config.log_images_indices:
+        # Extract the images at the specified index
+        original_image = X_test[idx].permute(1, 2, 0).cpu().numpy()
+        gt_image = Y_test[idx].permute(1, 2, 0).cpu().numpy()
+
+        # Unnormalize the images
+        original_image = unormalize_np_image(original_image)
+        gt_image = unormalize_np_image(gt_image)
+
+        # Log the images to Weights & Biases with clear captions
+        wandb.log({"original_image_" + str(idx): [wandb.Image(original_image, caption="|Original index: " + str(idx) + "|")]})
+        wandb.log({"gt_image_" + str(idx): [wandb.Image(gt_image, caption="|GT index: " + str(idx) + "|")]})
     
     for epoch in (range(n_epochs)):
         model.train()
@@ -441,50 +472,46 @@ def training(model, train_loader, n_epochs=3, validation=False, val_loader=None,
         
         if validation:
             model.eval()
-            metrices['val/loss'] = 0
-            metrices['val/accuracy'] = 0
-            for x_val, y_val in val_loader:
-                metrices['val/loss'] += get_loss(model,x_val,y_val)
-                metrices['val/accuracy'] += accuracy(model,x_val,y_val)
-            
-            metrices['val/loss'] /= len(val_loader)
-            metrices['val/accuracy'] /= len(val_loader)
-            
-            if epoch%10==0  or epoch==n_epochs-1:
-
-                x_vis = x_val
-                y_vis = y_val
-                # Extract the original image and convert it to numpy array
-                original_image = x_vis[0].permute(1, 2, 0).cpu().numpy()
-                gt_image = y_vis[0].permute(1, 2, 0).cpu().numpy()
-
-                # Compute the predicted image using the model
-                predicted_image = model.module.predict(x_vis[0].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0).numpy()
-
-                # unormalize the image
-                original_image = unormalize_np_image(original_image)
-                gt_image = unormalize_np_image(gt_image)
-                predicted_image = unormalize_np_image(predicted_image)
-
-                # Log the original image to Weights & Biases
-                wandb.log({"original_image": [wandb.Image(original_image, caption="Original Image")]})
-                wandb.log({"gt_image": [wandb.Image(gt_image, caption="GT Image")]})
-                wandb.log({"predicted_image": [wandb.Image(predicted_image, caption="Predicted Image")]})
-            
-            # if print_every_epoch: print(f"Epoch {epoch}/{n_epochs}: |>train_loss: {metrices['train/loss']}, val_loss: {metrices['val/loss']}, val_accuracy: {metrices['val/accuracy']}")
-            # # print image
-            # if print_every_epoch: 
-            #     print("Original Image")
-            #     fig, ax = plt.subplots(1, 3, figsize=(15, 5))
-            #     ax[0].imshow(original_image)
-            #     ax[1].imshow(gt_image)
-            #     ax[2].imshow(predicted_image) 
-            #     for a in ax:
-            #         a.axis('off')                    
-            #     plt.show()
+            with torch.no_grad():
+                metrices['val/loss'] = 0
+                metrices['val/accuracy'] = 0
+                for x_val, y_val in val_loader:
+                    metrices['val/loss'] += get_loss(model,x_val,y_val)
+                    metrices['val/accuracy'] += accuracy(model,x_val,y_val)
                 
+                metrices['val/loss'] /= len(val_loader)
+                metrices['val/accuracy'] /= len(val_loader)
+                
+                wnb_image_log_indices = config.log_images_indices
+
+                if epoch % config.log_images_interval == 0:
+                    for idx in wnb_image_log_indices:
+                        # Compute the predicted image using the model
+                        predicted_image = model.module.predict(X_test[idx].unsqueeze(0)).cpu().detach().squeeze(0).permute(1, 2, 0).numpy()
+
+                        # Unnormalize the images
+                        predicted_image = unormalize_np_image(predicted_image)
+
+                        # Log the images to Weights & Bia   ses with clear captions
+                        wandb.log({"predicted_image_" + str(idx): [wandb.Image(predicted_image, caption="|Predicted index: " + str(idx) + "|")]})
+                
+                
+                # if print_every_epoch: print(f"Epoch {epoch}/{n_epochs}: |>train_loss: {metrices['train/loss']}, val_loss: {metrices['val/loss']}, val_accuracy: {metrices['val/accuracy']}")
+                # # print image
+                # if print_every_epoch: 
+                #     print("Original Image")
+                #     fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+                #     ax[0].imshow(original_image)
+                #     ax[1].imshow(gt_image)
+                #     ax[2].imshow(predicted_image) 
+                #     for a in ax:
+                #         a.axis('off')                    
+                #     plt.show()
+                
+        # scheduler to decrease learning rate
+        scheduler.step()
         wandb.log(metrices)   
-            
+        
     if print_every_epoch: print("Training finished")
     wandb.finish()
 
@@ -506,26 +533,25 @@ def get_loss(model, x, y):
         return loss_layer(model, pred, y).item()
 
 def accuracy(model, x, y):
-    metric = SSIM().cuda()
+    metric = SSIM().to(DEVICE)
     x = x.to(DEVICE)
     y = y.to(DEVICE)
     with torch.no_grad():
         pred = model(x)
         return metric(pred, y)
     
-# %%
-""" ## Loading Model and Training """
-print("loading Models and making dataloaders", flush=True)
+# %% """ ## Loading Model and Training """
+print("\n>\t","loading Models and making dataloaders", flush=True)
 
 torch.cuda.empty_cache()
-model = UnetWithAT().cuda()
+model = UnetWithAT().to(DEVICE)
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True,drop_last=True)
 val_dataset = torch.utils.data.TensorDataset(X_test, Y_test)
 val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size, shuffle=False)
 
-model = nn.DataParallel(model, device_ids=[0,1,2,3])
+model = nn.DataParallel(model, device_ids=[0,1])
 
 # param_size = 0
 # for param in model.parameters():
@@ -537,24 +563,26 @@ model = nn.DataParallel(model, device_ids=[0,1,2,3])
 # size_all_mb = (param_size + buffer_size) / 1024**2
 # print('model size: {:.3f}MB'.format(size_all_mb))
 
-print("Model loaded", flush=True)
-# %%
-print("Training ...........", flush=True)
+print("\n>\t","Model loaded", flush=True)
+# %% """ Training """
+print("\n>\t","Training ...........", flush=True)
 
 loss_weights=(10,5)
 optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
+scheduler = StepLR(optimizer, step_size=config.step_size, gamma=config.gamma)
+
 # training(model,train_loader, n_epochs=config.epochs, print_every_epoch=True, optimizer=optimizer)   
 training(model,train_loader, n_epochs=config.epochs, print_every_epoch=False, optimizer=optimizer, validation=True, val_loader=val_loader)
 
-print("Training done", flush=True)
+print("\n>\t","Training done", flush=True)
 # %%
-print("Saving model", flush=True)
+print("\n>\t","Saving model", flush=True)
 
 # save the model with epoch done in the name  
 """ Save the model """
 # save the model
 model_path = f"./shadrem-att.pth"
-torch.save(model.module.state_dict(), model_path)
+torch.save(model.state_dict(), model_path)
 print(f"Model saved successfully at path : {model_path}",flush=True)
 # torch.save(model.state_dict(), f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth")
 # print(f"Model saved successfully at path :",f"../models/model_att_2000_w10_5_epoch{config.epochs}.pth",flush=True)
