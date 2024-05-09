@@ -13,6 +13,7 @@ import numpy as np
 import os
 from PIL import Image
 from transformers import AutoImageProcessor, MobileNetV1Model
+from transformers import MobileNetV2Config, MobileNetV2Model
 from torch import nn
 import torch
 print("Importing lib....", flush=True)
@@ -405,7 +406,7 @@ class UnetV2WithAT(nn.Module):
 
 # %%
 class LPNet(nn.Module):
-    def __init__(self, i2it_model_path, L=2, interp_mode='nearest-exact', lr=0.1):
+    def __init__(self, i2it_model_path, L=2, interp_mode='nearest-exact', lr=0.1, Unet_class=UnetV2WithAT):
         super(LPNet, self).__init__()
 
         self.L = L
@@ -413,7 +414,7 @@ class LPNet(nn.Module):
         self.final_input_dim = None
 
         self.i2it_model = nn.DataParallel(
-            UnetV2WithAT(), device_ids=[0, 1, 2, 3])
+            Unet_class(), device_ids=[0, 1, 2, 3])
         self.i2it_model.load_state_dict(torch.load(i2it_model_path))
         for param in self.i2it_model.module.parameters():
             param.requires_grad_(False)
