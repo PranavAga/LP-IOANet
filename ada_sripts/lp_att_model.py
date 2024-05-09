@@ -41,7 +41,7 @@ print("Logging in to wandb\n\n", flush=True)
 wandb.login()
 wandb.init(project="smai-proj-lp_shadow-rem", config={
     "dataset": "Shadoc-768,1024",
-    "architecture": "LPNet+UNetWithAT",
+    "architecture": "V2_LPNet+UNetWithAT",
     
     "n_images":2000,
     "epochs": 200,
@@ -579,7 +579,7 @@ def accuracy(model, x, y):
 
 # %%
 torch.cuda.empty_cache()
-model_lp = LPNet('./shadrem-att.pth').to(DEVICE)
+model_lp = LPNet('./v2-shadrem-att.pth').to(DEVICE)
 print("Model loaded", flush=True)
 
 train_dataset = torch.utils.data.TensorDataset(X_train, Y_train)
@@ -626,7 +626,7 @@ print("Training done", flush=True)
 print("Saving model", flush=True)
 
 # save the model
-model_path = f"./lpnet_shadrem-att.pth"
+model_path = f"./v2_lpnet_shadrem-att.pth"
 torch.save(model.state_dict(), model_path)
 print(f"Model saved successfully at path : {model_path}",flush=True)
 torch.cuda.empty_cache()
