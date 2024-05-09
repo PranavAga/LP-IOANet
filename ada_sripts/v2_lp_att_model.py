@@ -155,6 +155,127 @@ print("data loaded", flush=True)
 """ ## Layers Definition """
 
 
+class DecoderBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, expansion=2, do_up_sampling=True):
+        # TODO: adding skip connections
+        """
+        Decoder block module.
+
+        Args:
+            in_channels (int): Number of input channels.
+            out_channels (int): Number of output channels.
+            expansion (int, optional): Expansion factor. Default is 3.
+        """
+        super(DecoderBlock, self).__init__()
+        self.relu = nn.ReLU(inplace=True)
+
+        self.cnn1 = nn.Conv2d(in_channels, in_channels *
+                              expansion, kernel_size=1, stride=1)
+        self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
+
+        # nearest neighbor x2
+        self.do_up_sampling = do_up_sampling
+        self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
+
+        # DW conv/ c_in*exp x 5 x 5 x c_in*exp
+        self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
+                              expansion, kernel_size=5, padding=2, stride=1)
+        self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
+
+        self.cnn3 = nn.Conv2d(in_channels*expansion,
+                              out_channels, kernel_size=1, stride=1)
+        self.bnn3 = nn.BatchNorm2d(out_channels)
+
+        self.identity = nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1),
+            nn.ReLU(inplace=True)
+        )
+
+    def forward(self, x):
+        """
+        Forward pass through the decoder block.
+
+        Args:
+            x (torch.Tensor): Input tensor.
+
+        Returns:
+            torch.Tensor: Output tensor.
+        """
+        temp_x = self.identity(x)
+        x = self.cnn1(x)
+        x = self.bnn1(x)
+        x = self.relu(x)
+
+        if self.do_up_sampling:
+            x = self.upsample(x)
+            temp_x = self.upsample(temp_x)
+
+        x = self.cnn2(x)
+        x = self.bnn2(x)
+        x = self.relu(x)
+
+        x = self.cnn3(x)
+        x = self.bnn3(x)
+
+        return x + temp_x
+
+
+def get_encoderv2_layers():
+    configuration = MobileNetV2Config()
+    model = MobileNetV2Model(configuration)
+
+    list_en = nn.ModuleList()
+    encoder_layers_idx = [
+        [0],
+        [1, 2],
+        [3, 4, 5],
+        [6, 7, 8, 9],
+        [10, 11, 12],
+        [13, 14, 15],
+    ]
+    for idx, layer in enumerate(encoder_layers_idx):
+        list_en.append(nn.Sequential(*[model.layer[i] for i in layer]))
+    list_en.append(model.conv_1x1)
+    return list_en, model.conv_stem
+
+
+def get_decoderv2_layers():
+    decoder_layers = nn.ModuleList()
+    decoder_layers.append(DecoderBlock(1280, 320, do_up_sampling=False))
+    decoder_layers.append(DecoderBlock(320+320, 160, do_up_sampling=False))
+    decoder_layers.append(DecoderBlock(160+160, 96, do_up_sampling=True))
+    decoder_layers.append(DecoderBlock(96+96, 64, do_up_sampling=False))
+    decoder_layers.append(DecoderBlock(64+64, 32, do_up_sampling=True))
+    decoder_layers.append(DecoderBlock(32+32, 24, do_up_sampling=True))
+    decoder_layers.append(DecoderBlock(24+24, 16, do_up_sampling=True))
+
+    # a conv layer to get the final output
+    out_stem = nn.Sequential(
+        nn.Sequential(
+            nn.ConvTranspose2d(16, 32, kernel_size=(1, 1),
+                               stride=(1, 1), bias=False),
+            nn.BatchNorm2d(32, eps=0.001, momentum=0.997,
+                           affine=True, track_running_stats=True),
+            nn.ReLU6(),
+        ),
+        nn.Sequential(
+            nn.ConvTranspose2d(32, 32, kernel_size=(3, 3), stride=(
+                1, 1), groups=32, bias=False, padding=1),
+            nn.BatchNorm2d(32, eps=0.001, momentum=0.997,
+                           affine=True, track_running_stats=True),
+            nn.ReLU6(),
+        ),
+        nn.Sequential(
+            nn.ConvTranspose2d(32, 3, kernel_size=(3, 3), stride=(
+                2, 2), bias=False, padding=1, output_padding=1),
+            nn.BatchNorm2d(3, eps=0.001, momentum=0.997,
+                           affine=True, track_running_stats=True),
+        )
+    )
+
+    return decoder_layers, out_stem
+
+
 class h_sigmoid(nn.Module):
     def __init__(self, inplace=True):
         super(h_sigmoid, self).__init__()
@@ -211,191 +332,75 @@ class CoordAtt(nn.Module):
         return out
 
 
-def get_encoder_layers():
-    """
-    Retrieves the layers of the MobileNetV1 model for encoding images.
-
-    Returns:
-        mobilenet_seq_blocks (list): List containing the layers of the MobileNetV1 model
-            divided into blocks.
-        conv_stem (torch.nn.Module): The stem convolutional layer of the MobileNetV1 model.
-        image_processor (transformers.AutoImageProcessor): Pretrained image processor for
-            MobileNetV1.
-    """
-    # download the model
-    image_processor = AutoImageProcessor.from_pretrained(
-        "google/mobilenet_v1_1.0_224")
-    model = MobileNetV1Model.from_pretrained("google/mobilenet_v1_1.0_224")
-
-    mobilenet_seq_blocks = nn.ModuleList()
-    # block 1 will contain 4 layer of model.layer
-    block = nn.Sequential(*list(model.layer)[:2])
-    mobilenet_seq_blocks.append(block)
-
-    block = nn.Sequential(*list(model.layer)[2:4])
-    mobilenet_seq_blocks.append(block)
-
-    block = nn.Sequential(*list(model.layer)[4:8])
-    mobilenet_seq_blocks.append(block)
-
-    block = nn.Sequential(*list(model.layer)[8:12])
-    mobilenet_seq_blocks.append(block)
-
-    block = nn.Sequential(*list(model.layer)[12:])
-    mobilenet_seq_blocks.append(block)
-
-    return mobilenet_seq_blocks, model.conv_stem, image_processor
-
-
-class DecoderBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, expansion=2, do_up_sampling=True):
-        """
-        Decoder block module.
-
-        Args:
-                in_channels (int): Number of input channels.
-                out_channels (int): Number of output channels.
-                expansion (int, optional): Expansion factor. Default is 3.
-        """
-        super(DecoderBlock, self).__init__()
-        self.relu = nn.ReLU(inplace=True)
-
-        self.cnn1 = nn.Conv2d(in_channels, in_channels *
-                              expansion, kernel_size=1, stride=1)
-        self.bnn1 = nn.BatchNorm2d(in_channels*expansion)
-
-        # nearest neighbor x2
-        self.do_up_sampling = do_up_sampling
-        self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
-
-        # DW conv/ c_in*exp x 5 x 5 x c_in*exp
-        self.cnn2 = nn.Conv2d(in_channels*expansion, in_channels *
-                              expansion, kernel_size=5, padding=2, stride=1)
-        self.bnn2 = nn.BatchNorm2d(in_channels*expansion)
-
-        self.cnn3 = nn.Conv2d(in_channels*expansion,
-                              out_channels, kernel_size=1, stride=1)
-        self.bnn3 = nn.BatchNorm2d(out_channels)
-
-        self.skip_cnn = nn.Conv2d(
-            in_channels, out_channels, kernel_size=1, stride=1)
-
-    def forward(self, x):
-        """
-        Forward pass through the decoder block.
-
-        Args:
-                x (torch.Tensor): Input tensor.
-
-        Returns:
-                torch.Tensor: Output tensor.
-        """
-        temp_x = x
-        x = self.cnn1(x)
-        x = self.bnn1(x)
-        x = self.relu(x)
-
-        x = self.cnn2(x)
-        x = self.bnn2(x)
-        x = self.relu(x)
-
-        x = self.cnn3(x)
-        x = self.bnn3(x)
-
-        # adding skip connection
-        temp_x = self.skip_cnn(temp_x)
-
-        x = x + temp_x
-
-        if self.do_up_sampling:
-            x = self.upsample(x)
-
-        return x
-
-
-def get_decoder_layers(out_sizes=[512, 256, 128, 64, 32]):
-    decoder_blocks = nn.ModuleList()
-    for i, out_size in enumerate(out_sizes):
-        if i == 0:
-            decoder_blocks.append(DecoderBlock(out_size*2, out_size))
-        elif i == len(out_sizes)-1:
-            decoder_blocks.append(DecoderBlock(
-                out_size*4, out_size, do_up_sampling=False))
-        else:
-            decoder_blocks.append(DecoderBlock(out_size*4, out_size))
-    return decoder_blocks
-
-
 # %%
 """ ## Model Definition """
 
 
-class UnetWithAT(nn.Module):
-
+class UnetV2WithAT(nn.Module):
     def __init__(self, lr=0.5):
-        super(UnetWithAT, self).__init__()
-        encoder_blocks, image_stem_layer, image_processor = get_encoder_layers()
-        decoder_blocks = get_decoder_layers()
+        super(UnetV2WithAT, self).__init__()
+        self.encoder_blocks, self.first_layer = get_encoderv2_layers()
+        self.decoder_blocks, self.last_layer = get_decoderv2_layers()
 
-        self.encoder_blocks = encoder_blocks
-        self.decoder_blocks = decoder_blocks
+        # encoder_blocks, image_stem_layer, image_processor = get_encoder_layers()
+        # decoder_blocks = get_decoder_layers()
 
-        self.image_processor = image_processor
-        self.image_stem_layer = image_stem_layer
+        # self.encoder_blocks = encoder_blocks
+        # self.decoder_blocks = decoder_blocks
+
+        # self.image_processor = image_processor
+        # self.image_stem_layer = image_stem_layer
         self.lra = CoordAtt(3, 3)
         self.ldra = CoordAtt(3, 3)
 
-        self.out_image_stem_layer = nn.Sequential(
-            nn.ConvTranspose2d(32, 3, kernel_size=3, stride=2,
-                               bias=False, padding=1, output_padding=1),
-            nn.BatchNorm2d(3, eps=0.001, momentum=0.9997,
-                           affine=True, track_running_stats=True),
-            nn.ReLU()
-        )
+        # self.out_image_stem_layer = nn.Sequential(
+        #     nn.ConvTranspose2d(32, 3, kernel_size=3, stride=2,
+        #                        bias=False, padding=1, output_padding=1),
+        #     nn.BatchNorm2d(3, eps=0.001, momentum=0.9997,
+        #                    affine=True, track_running_stats=True),
+        #     nn.ReLU()
+        # )
 
         # self.loss2 = nn.
 
-    def forward(self, x, process_image=False):
+    def forward(self, x):
         """
         Performs forward pass through the U-Net model.
 
         Args:
-            x (torch.Tensor): Input image tensor.
-            process_image (bool): Whether to preprocess input image.
+                x (torch.Tensor): Input image tensor.
+                process_image (bool): Whether to preprocess input image.
 
         Returns:
-            torch.Tensor: Output image tensor.
+                torch.Tensor: Output image tensor.
         """
-        if process_image:
-            new_x = [self.image_processor(img)['pixel_values'][0] for img in x]
-            x = torch.stack(new_x).permute(0, 3, 1, 2)
-        assert x.shape[1] == 3, "Input image should have 3 channels(nx3x224x224)"
+        assert x.shape[1] == 3, "input image should have 3 channels(nx3x224x224)"
 
         temp_in_x = x
-        x = self.image_stem_layer(x)
+
+        x = self.first_layer(x)
+
         enc_outputs = []
         for indx, enc_block in enumerate(self.encoder_blocks):
             x = enc_block(x)
-            # print(f"Encoder block {indx} output shape: {x.shape}")
             enc_outputs.append(x)
+
         for indx, dec_block in enumerate(self.decoder_blocks):
             if indx == 0:
                 x = dec_block(x)
+
             else:
                 x = dec_block(
                     torch.cat([x, enc_outputs[len(self.decoder_blocks) - indx - 1]], dim=1))
-            # print(f"Decoder block {indx} output shape: {x.shape}")
+
+        x = self.last_layer(x)
 
         # lra attention on skip connection
         temp_in_x = self.lra(temp_in_x)
         # ldra attention on output
-        x = self.ldra(self.out_image_stem_layer(x))
+        x = self.ldra(x)
 
         return x + temp_in_x
-
-    def predict(self, x):
-        with torch.no_grad():
-            return self(x)
 
 
 # %%
@@ -408,7 +413,7 @@ class LPNet(nn.Module):
         self.final_input_dim = None
 
         self.i2it_model = nn.DataParallel(
-            UnetWithAT(), device_ids=[0, 1, 2, 3])
+            UnetV2WithAT(), device_ids=[0, 1, 2, 3])
         self.i2it_model.load_state_dict(torch.load(i2it_model_path))
         for param in self.i2it_model.module.parameters():
             param.requires_grad_(False)
